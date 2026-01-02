@@ -3,16 +3,30 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pradeep Kumar | Portfolio</title>
+  <title>Pradeep Kumar Loganathan | Portfolio</title>
+
+  <!-- Favicon (upload these files to repo root) -->
+  <link rel="icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+
+  <!-- Link Preview (upload assets/preview.png to your repo) -->
+  <meta property="og:title" content="Pradeep Kumar Loganathan | Portfolio">
+  <meta property="og:description" content="System Design & Validation • EV Powertrain • SynRM • Automotive Wiring • Functional Safety • MATLAB/Simulink">
+  <meta property="og:image" content="https://prdkmrsdy.github.io/assets/preview.png">
+  <meta property="og:url" content="https://prdkmrsdy.github.io">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://prdkmrsdy.github.io/assets/preview.png">
 
   <style>
     :root{
       --bg: #070A12;
       --card: rgba(10,14,28,0.7);
       --text: #EAF0FF;
-      --muted: rgba(234,240,255,0.72);
+      --muted: rgba(234,240,255,0.74);
       --accent: #4C7DFF;
-      --border: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.09);
     }
 
     * { box-sizing: border-box; }
@@ -32,7 +46,7 @@
       justify-content: center;
       padding: 18px 16px;
       z-index: 10;
-      background: linear-gradient(to bottom, rgba(7,10,18,0.75), rgba(7,10,18,0));
+      background: linear-gradient(to bottom, rgba(7,10,18,0.82), rgba(7,10,18,0));
       backdrop-filter: blur(6px);
     }
     .nav .inner{
@@ -43,14 +57,14 @@
       gap: 12px;
     }
     .brand{
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 0.2px;
       text-decoration:none;
       color: var(--text);
     }
     .links{
       display:flex;
-      gap: 18px;
+      gap: 14px;
       align-items:center;
       flex-wrap: wrap;
     }
@@ -83,7 +97,7 @@
       inset:0;
       background:
         radial-gradient(1200px 600px at 20% 40%, rgba(76,125,255,0.35), transparent 60%),
-        linear-gradient(to right, rgba(7,10,18,0.92), rgba(7,10,18,0.55)),
+        linear-gradient(to right, rgba(7,10,18,0.93), rgba(7,10,18,0.55)),
         url("assets/hero-bg.jpg");
       background-size: cover;
       background-position: center;
@@ -118,7 +132,7 @@
       margin: 0 0 18px 0;
       color: var(--muted);
       font-size: 16px;
-      max-width: 60ch;
+      max-width: 68ch;
     }
 
     .cta{
@@ -138,7 +152,7 @@
       border: 1px solid var(--border);
       background: rgba(255,255,255,0.05);
       color: var(--text);
-      font-weight: 600;
+      font-weight: 700;
       font-size: 14px;
     }
     .btn.primary{
@@ -189,7 +203,7 @@
     }
     .avatar{
       width: 100%;
-      aspect-ratio: 1/1.1;
+      aspect-ratio: 1/1.12;
       object-fit: cover;
       border-radius: 18px;
       border: 1px solid var(--border);
@@ -199,7 +213,7 @@
       margin-top: 12px;
       color: var(--muted);
       font-size: 13px;
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
     /* Sections */
@@ -217,26 +231,17 @@
       letter-spacing: -0.2px;
     }
 
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
     .card{
       border: 1px solid var(--border);
       background: rgba(255,255,255,0.03);
       border-radius: 16px;
       padding: 16px;
     }
-    .card h3{
-      margin: 0 0 8px 0;
-      font-size: 16px;
-    }
     .card p{
       margin: 0;
       color: var(--muted);
-      font-size: 13.5px;
-      line-height: 1.55;
+      font-size: 14px;
+      line-height: 1.7;
     }
     .card a{
       color: var(--text);
@@ -244,6 +249,48 @@
       border-bottom: 1px dashed rgba(255,255,255,0.25);
     }
 
+    /* Stats */
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .stat-card{
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      text-align:center;
+    }
+    .stat-number{
+      font-size: 30px;
+      font-weight: 900;
+    }
+    .stat-label{
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Projects grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .proj h3{
+      margin: 0 0 8px 0;
+      font-size: 16px;
+    }
+    .proj p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+
+    /* Experience blocks */
     .exp{
       display:grid;
       gap: 14px;
@@ -259,11 +306,52 @@
       justify-content: space-between;
       gap: 12px;
       flex-wrap: wrap;
+      margin-bottom: 8px;
     }
-    .role{ font-weight: 700; }
+    .role{ font-weight: 800; }
     .meta{ color: var(--muted); font-size: 13px; }
     .expItem ul{ margin: 10px 0 0 18px; color: var(--muted); }
     .expItem li{ margin: 6px 0; }
+
+    /* Skills bars */
+    .skills{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .skill{
+      font-size: 13px;
+    }
+    .skill-header{
+      display:flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      color: var(--muted);
+    }
+    .bar{
+      height: 8px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 999px;
+      overflow:hidden;
+    }
+    .fill{
+      height: 100%;
+      background: linear-gradient(90deg, #4C7DFF, #6EA0FF);
+      border-radius: 999px;
+    }
+
+    /* Two-column list cards */
+    .twoCol{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .list{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+    .list li{ margin: 8px 0; }
 
     footer{
       padding: 28px 0 60px;
@@ -276,6 +364,9 @@
       .wrap{ grid-template-columns: 1fr; }
       .profileCard{ order: -1; }
       .grid{ grid-template-columns: 1fr; }
+      .stats{ grid-template-columns: 1fr 1fr; }
+      .skills{ grid-template-columns: 1fr; }
+      .twoCol{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -290,6 +381,8 @@
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#achievements">Achievements</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -301,28 +394,30 @@
       <div>
         <h1 class="headline">Pradeep Kumar Loganathan</h1>
         <p class="tagline">
-          Building automotive radar perception, embedded systems, and ML pipelines —
-          from FMCW signal processing to multi-target tracking under occlusion.
+          System Design & Validation Engineer focused on EV powertrain and Synchronous Reluctance Motors (SynRM).
+          Experienced in validation, performance tuning (field-weakening / advance angle), PID tuning, wiring harness design,
+          and functional safety practices.
         </p>
 
         <div class="cta">
-          <a class="btn primary" href="https://drive.google.com/file/d/1uwE2erzvRXfupYMB7QSZ-p2xTuHijPUz/view?usp=drive_link" target="_blank">Resume</a>
-          <a class="btn" href="https://github.com/Prdpkmrsdy" target="_blank">GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/pradeep-kumar-loganathan/" target="_blank">LinkedIn</a>
+          <a class="btn primary" href="https://drive.google.com/file/d/1uwE2erzvRXfupYMB7QSZ-p2xTuHijPUz/view?usp=drive_link" target="_blank" rel="noopener">Resume</a>
+          <a class="btn" href="https://github.com/Prdpkmrsdy" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/pradeep-kumar-loganathan/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
 
         <div class="social">
-          <a class="icon" href="https://github.com/Prdpkmrsdy" target="_blank" title="GitHub">GH</a>
-          <a class="icon" href="https://www.linkedin.com/in/pradeep-kumar-loganathan/" target="_blank" title="LinkedIn">in</a>
-          <a class="icon" href="mailto:your@email.com" title="Email">@</a>
+          <a class="icon" href="https://github.com/Prdpkmrsdy" target="_blank" rel="noopener" title="GitHub">GH</a>
+          <a class="icon" href="https://www.linkedin.com/in/pradeep-kumar-loganathan/" target="_blank" rel="noopener" title="LinkedIn">in</a>
+          <a class="icon" href="mailto:prdpkmrsdy@gmail.com" title="Email">@</a>
         </div>
       </div>
 
       <div class="profileCard">
         <img class="avatar" src="assets/profile.png" alt="Pradeep profile photo">
         <div class="mini">
-          Automotive Radar · Embedded Systems · Machine Learning<br>
-          TI AWR1642 + DCA1000 · Raspberry Pi · Python/MATLAB
+          EV Powertrain • SynRM • Validation & Characterization<br>
+          MATLAB/Simulink/Stateflow • CANalyzer • ISO 26262 / ISO 21783<br>
+          Wiring Harness (HV/LV) • Dyno Testing • PCB Design (Altium/KiCad)
         </div>
       </div>
     </div>
@@ -334,10 +429,29 @@
       <h2>About</h2>
       <div class="card">
         <p>
-          I work on radar perception and embedded systems for automotive applications.
-          My interests include FMCW processing (range/Doppler/angle), multi-target tracking,
-          robust data association, and deploying pipelines on edge compute.
+          I build and validate electric powertrain systems with strong hands-on experience in motor characterization,
+          control tuning, dyno testing, wiring harness development, and compliance workflows. I’ve worked on SynRM
+          platforms ranging from 3.7 kW to 70 kW and supported new product development from prototype to pre-production.
         </p>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <div class="stat-number">3+</div>
+          <div class="stat-label">Years EV Powertrain</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">70 kW</div>
+          <div class="stat-label">SynRM Program Scale</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">270+</div>
+          <div class="stat-label">FMEA Items Authored</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">1M+</div>
+          <div class="stat-label">USD Tooling Savings</div>
+        </div>
       </div>
     </div>
   </section>
@@ -347,17 +461,25 @@
     <div class="section-inner">
       <h2>Projects</h2>
       <div class="grid">
-        <div class="card">
-          <h3>Multi-Target Tracking (JPDA-lite)</h3>
-          <p>Kalman filter bank + gating + association under occlusion. Add plots + failure modes.</p>
+        <div class="card proj">
+          <h3>Automated Test Jig for Transformer Testing (LabVIEW)</h3>
+          <p>
+            Automated type tests (winding resistance, core loss/no-load current, vector group, short-circuit test)
+            with temperature rise logging using NI-DAQ 6009. Reduced testing time from 34 hours to 19 hours.
+          </p>
         </div>
-        <div class="card">
-          <h3>AWR1642 FMCW Pipeline</h3>
-          <p>Range–Doppler processing, CFAR, clustering, embedded integration for demos.</p>
+        <div class="card proj">
+          <h3>PLC-Based Elevator System</h3>
+          <p>
+            Built a scaled elevator model and implemented PLC ladder logic control. Added RFID (EM-18) authentication
+            for access control and management.
+          </p>
         </div>
-        <div class="card">
-          <h3>SynRM Test Bench Automation</h3>
-          <p>Rare-earth-free motor testing automation, data logging, and analysis workflow.</p>
+        <div class="card proj">
+          <h3>72V → 12V DC-DC Converter (2-Wheeler)</h3>
+          <p>
+            Developed a DC-DC converter design using Infineon TLD5190QV for two-wheeler applications.
+          </p>
         </div>
       </div>
     </div>
@@ -369,30 +491,144 @@
       <h2>Experience</h2>
 
       <div class="exp">
+
         <div class="expItem">
           <div class="expTop">
-            <div class="role">Graduate Student / Research Projects</div>
-            <div class="meta">Colorado State University · 2024 – Present</div>
+            <div class="role">System Design & Validation Engineer</div>
+            <div class="meta">Chara Technologies · Bangalore, India · May 2022 – Present</div>
           </div>
           <ul>
-            <li>Automotive radar perception: detection, tracking, and occlusion robustness.</li>
-            <li>Hands-on with TI AWR1642 + DCA1000; Python/MATLAB pipelines.</li>
-            <li>Built repeatable evaluation with metrics and failure-mode catalogs.</li>
+            <li>Core team member in simulation, design support, and characterization of 3.7 kW, 22 kW, and 70 kW SynRM platforms.</li>
+            <li>Validation POC: speed–torque characterization, performance tuning (field-weakening, advance angle), PID tuning, load tests.</li>
+            <li>Strong understanding of FOC and parameter tuning for maximum torque per ampere (d-q axes decoupling).</li>
+            <li>Hands-on with dynos (4Q, hysteresis, eddy current, powder), power analyzers, MSO scopes, DAQ, programmable supplies, CAN modules.</li>
+            <li>Harness development for 2/3/4-wheeler powertrain skateboard + user features and peripheral control.</li>
+            <li>Exposure to ISO 26262 and ISO 21783 workflows; implemented 5S and POWRA for safer, efficient test benches.</li>
           </ul>
         </div>
 
         <div class="expItem">
           <div class="expTop">
-            <div class="role">Embedded & Power Electronics Projects</div>
-            <div class="meta">Personal / Academic · 2023 – 2024</div>
+            <div class="role">Powertrain & Electrification Engineer (Electrical Systems)</div>
+            <div class="meta">kWh Motors Pvt Ltd · Bangalore, India · Sep 2021 – May 2022</div>
           </div>
           <ul>
-            <li>SynRM test bench automation and data acquisition workflows.</li>
-            <li>Converter modeling/simulation and hardware integration experience.</li>
+            <li>Led electrical team for a 3 kW L2 (2-wheeler) powertrain skateboard; supported prototype → pre-production integration.</li>
+            <li>Owned wiring harness NPD and reduced connector count; achieved cost saving of ~27 USD per vehicle.</li>
+            <li>Worked on ARAI/AIS approvals, WVTA, and coordination with certification bodies (iCAT, TUV SUD, GARC).</li>
+            <li>Authored and managed 270+ FMEA items (SAE J1739); performed vehicle dynamics calculations and OEM benchmarking.</li>
+            <li>Supplier development: relationships with 20+ tier-1/2 suppliers; achieved $1M+ tooling savings via market analysis.</li>
+          </ul>
+        </div>
+
+        <div class="expItem">
+          <div class="expTop">
+            <div class="role">Data Analyst – Internship</div>
+            <div class="meta">PV Diagnostics (Fototentia Diagnostics Pvt Ltd) · Indore, India · Dec 2019 – Jan 2020; Apr 2021 – May 2021</div>
+          </div>
+          <ul>
+            <li>Plant quality analysis using EL imaging and IV-curve analysis; energy yield assessment (P50/P75/P90).</li>
+            <li>Loss analysis (DC cable, inverter efficiency, AC/transformer, transmission line, auxiliary) using ETAP.</li>
+            <li>Produced power quality analysis reports (TDH, WMS summary, IV bin degradation) for a 10 MW PV park.</li>
+          </ul>
+        </div>
+
+        <div class="expItem">
+          <div class="expTop">
+            <div class="role">Associate Engineer – Control Panel Division</div>
+            <div class="meta">Mak Controls & Systems Pvt Ltd · Coimbatore, India · May 2017 – Mar 2018</div>
+          </div>
+          <ul>
+            <li>Designed ground support equipment control panels up to 180 kVA; wiring sketches, relay interlocks, routing and compliance.</li>
+            <li>Supported special projects with regulatory awareness (NEC/NFPA); exposure to EMI/EMC testing with CEMILAC via TASL.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-inner">
+      <h2>Skills</h2>
+
+      <div class="skills">
+        <div class="skill">
+          <div class="skill-header"><span>System Design & Validation</span><span>85%</span></div>
+          <div class="bar"><div class="fill" style="width:85%"></div></div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-header"><span>MATLAB / Simulink / Stateflow</span><span>75%</span></div>
+          <div class="bar"><div class="fill" style="width:75%"></div></div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-header"><span>FOC / Control Tuning (PID, FW)</span><span>80%</span></div>
+          <div class="bar"><div class="fill" style="width:80%"></div></div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-header"><span>Automotive Wiring (HV & LV)</span><span>80%</span></div>
+          <div class="bar"><div class="fill" style="width:80%"></div></div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-header"><span>Functional Safety (ISO 26262 / ISO 21783)</span><span>65%</span></div>
+          <div class="bar"><div class="fill" style="width:65%"></div></div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-header"><span>PCB Design (Altium / KiCad)</span><span>60%</span></div>
+          <div class="bar"><div class="fill" style="width:60%"></div></div>
+        </div>
+      </div>
+
+      <div style="height:18px"></div>
+
+      <div class="twoCol">
+        <div class="card">
+          <p><b style="color:var(--text)">Tools & Testing</b></p>
+          <ul class="list">
+            <li>Dyno systems: 4Q / hysteresis / eddy current / powder</li>
+            <li>Power analyzers, MSO scopes, DAQ systems</li>
+            <li>CAN tools: CANalyzer, CAN modules</li>
+            <li>COMSOL (basic thermal), ETAP (loss analysis)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <p><b style="color:var(--text)">Methods</b></p>
+          <ul class="list">
+            <li>FMEA (SAE J1739), HIRA, QRA, FRA</li>
+            <li>Benchmarking and supplier development</li>
+            <li>Model-based design and user feature state machines</li>
+            <li>5S and POWRA for test bench operations</li>
           </ul>
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="section-inner">
+      <h2>Achievements</h2>
+      <div class="twoCol">
+        <div class="card">
+          <ul class="list">
+            <li>Best Overall Performance award (600 USD) — Chara Technologies (FY 2022).</li>
+            <li>Won Singles & Doubles Inter-Corporate Shuttle Badminton Tournament — Bengaluru (2023).</li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul class="list">
+            <li>2 Gram Gold award — Best Performance in Middle School Board Exams (2013).</li>
+            <li>INTACH club award — best practices in conservation.</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -402,7 +638,9 @@
       <h2>Contact</h2>
       <div class="card">
         <p>
-          Email: <a href="mailto:your@email.com">your@email.com</a>
+          Email: <a href="mailto:prdpkmrsdy@gmail.com">prdpkmrsdy@gmail.com</a><br>
+          Phone: <a href="tel:+919943217325">+91 9943217325</a><br>
+          LinkedIn: <a href="https://www.linkedin.com/in/pradeep-kumar-loganathan/" target="_blank" rel="noopener">pradeep-kumar-loganathan</a>
         </p>
       </div>
     </div>
