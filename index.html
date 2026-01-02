@@ -290,6 +290,49 @@
       line-height: 1.55;
     }
 
+    /* Clickable project cards (NEW) */
+    .projectLink{
+      display:block;
+      text-decoration:none;
+      color:inherit;
+      border-radius: 16px;
+    }
+    .projectLink:focus{
+      outline:2px solid rgba(76,125,255,0.6);
+      outline-offset:6px;
+      border-radius: 18px;
+    }
+    .projectLink .card.proj{
+      cursor:pointer;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .projectLink:hover .card.proj{
+      transform: translateY(-4px);
+      box-shadow: 0 18px 55px rgba(0,0,0,0.45);
+      border-color: rgba(76,125,255,0.35);
+      background: rgba(255,255,255,0.045);
+    }
+    .projFooter{
+      margin-top: 12px;
+      display:flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items:center;
+    }
+    .badge{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: rgba(234,240,255,0.78);
+    }
+    .openHint{
+      margin-left:auto;
+      font-size: 12px;
+      color: rgba(234,240,255,0.6);
+    }
+
     /* Experience blocks */
     .exp{
       display:grid;
@@ -367,6 +410,7 @@
       .stats{ grid-template-columns: 1fr 1fr; }
       .skills{ grid-template-columns: 1fr; }
       .twoCol{ grid-template-columns: 1fr; }
+      .openHint{ margin-left: 0; }
     }
   </style>
 </head>
@@ -395,7 +439,7 @@
         <h1 class="headline">Pradeep Kumar Loganathan</h1>
         <p class="tagline">
           System Design & Validation Engineer focused on Power electronics and automotive systems.
-          Experienced in New Product Development,Design, testing , 3D printing 
+          Experienced in New Product Development,Design, testing , 3D printing
           and functional safety practices.
         </p>
 
@@ -413,9 +457,7 @@
       </div>
 
       <div class="profileCard">
-        <img class="avatar"
-     src="assets/profile.png"
-     alt="Pradeep profile photo">
+        <img class="avatar" src="assets/profile.png" alt="Pradeep profile photo">
         <div class="mini">
           EV Powertrain Development • Validation & Characterization<br>
           MATLAB/Simulink/Stateflow • CANalyzer • ISO 26262 / ISO 21783<br>
@@ -461,28 +503,85 @@
   <section id="projects">
     <div class="section-inner">
       <h2>Projects</h2>
+
       <div class="grid">
-        <div class="card proj">
-          <h3>Automated Test Jig for Transformer Testing (LabVIEW)</h3>
-          <p>
-            Automated type tests (winding resistance, core loss/no-load current, vector group, short-circuit test)
-            with temperature rise logging using NI-DAQ 6009. Reduced testing time from 34 hours to 19 hours.
-          </p>
-        </div>
-        <div class="card proj">
-          <h3>PLC-Based Elevator System</h3>
-          <p>
-            Built a scaled elevator model and implemented PLC ladder logic control. Added RFID (EM-18) authentication
-            for access control and management.
-          </p>
-        </div>
-        <div class="card proj">
-          <h3>72V → 12V DC-DC Converter (2-Wheeler)</h3>
-          <p>
-            Developed a DC-DC converter design using Infineon TLD5190QV for two-wheeler applications.
-          </p>
-        </div>
+
+        <!-- Project 1: change REPO_LINK_1 to your actual repo -->
+        <a class="projectLink" href="https://github.com/Prdpkmrsdy/REPO_LINK_1" target="_blank" rel="noopener noreferrer">
+          <div class="card proj">
+            <h3>Automated Test Jig for Transformer Testing (LabVIEW)</h3>
+            <p>
+              Automated type tests (winding resistance, core loss/no-load current, vector group, short-circuit test)
+              with temperature rise logging using NI-DAQ 6009. Reduced testing time from 34 hours to 19 hours.
+            </p>
+            <div class="projFooter">
+              <span class="badge">LabVIEW</span>
+              <span class="badge">NI-DAQ</span>
+              <span class="badge">Automation</span>
+              <span class="openHint">Opens in new tab ↗</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Project 2: change REPO_LINK_2 to your actual repo -->
+        <a class="projectLink" href="https://github.com/Prdpkmrsdy/REPO_LINK_2" target="_blank" rel="noopener noreferrer">
+          <div class="card proj">
+            <h3>PLC-Based Elevator System</h3>
+            <p>
+              Built a scaled elevator model and implemented PLC ladder logic control. Added RFID (EM-18) authentication
+              for access control and management.
+            </p>
+            <div class="projFooter">
+              <span class="badge">PLC</span>
+              <span class="badge">Ladder Logic</span>
+              <span class="badge">RFID</span>
+              <span class="openHint">Opens in new tab ↗</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Project 3: change REPO_LINK_3 to your actual repo -->
+        <a class="projectLink" href="https://github.com/Prdpkmrsdy/REPO_LINK_3" target="_blank" rel="noopener noreferrer">
+          <div class="card proj">
+            <h3>72V → 12V DC-DC Converter (2-Wheeler)</h3>
+            <p>
+              Developed a DC-DC converter design using Infineon TLD5190QV for two-wheeler applications.
+            </p>
+            <div class="projFooter">
+              <span class="badge">DC-DC</span>
+              <span class="badge">Power Electronics</span>
+              <span class="badge">Automotive</span>
+              <span class="openHint">Opens in new tab ↗</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Project 4 (NEW): replace REPO_LINK_4 with your repo -->
+        <a class="projectLink" href="https://github.com/Prdpkmrsdy/REPO_LINK_4" target="_blank" rel="noopener noreferrer">
+          <div class="card proj">
+            <h3>Flyback DC-DC Converter (Planar Transformer)</h3>
+            <p>
+              Planar-transformer based flyback/buck converter design for compact, high-efficiency power delivery.
+              Focus on magnetics design, thermal constraints, and validation-ready documentation.
+            </p>
+            <div class="projFooter">
+              <span class="badge">Flyback</span>
+              <span class="badge">Magnetics</span>
+              <span class="badge">Planar</span>
+              <span class="openHint">Opens in new tab ↗</span>
+            </div>
+          </div>
+        </a>
+
       </div>
+
+      <div style="height:12px"></div>
+      <div class="card">
+        <p>
+          More projects: <a href="https://github.com/Prdpkmrsdy?tab=repositories" target="_blank" rel="noopener">GitHub repositories</a>
+        </p>
+      </div>
+
     </div>
   </section>
 
@@ -625,7 +724,7 @@
         </div>
         <div class="card">
           <ul class="list">
-            <li> Gold meadelist — Best Performance in Middle School Board Exams (2013).</li>
+            <li>Gold medalist — Best Performance in Middle School Board Exams (2013).</li>
             <li>INTACH club award — best practices in conservation.</li>
           </ul>
         </div>
@@ -641,7 +740,8 @@
         <p>
           Email: <a href="mailto:prdpkmrsdy@gmail.com">prdpkmrsdy@gmail.com</a><br>
           Phone: <a href="tel:+919943217325">+91 9943217325</a><br>
-          LinkedIn: <a href="https://www.linkedin.com/in/pradeep-kumar-loganathan/" target="_blank" rel="noopener">pradeep-kumar-loganathan</a>
+          LinkedIn: <a href="https://www.linkedin.com/in/pradeep-kumar-loganathan/" target="_blank" rel="noopener">pradeep-kumar-loganathan</a><br>
+          GitHub: <a href="https://github.com/Prdpkmrsdy" target="_blank" rel="noopener">Prdpkmrsdy</a>
         </p>
       </div>
     </div>
