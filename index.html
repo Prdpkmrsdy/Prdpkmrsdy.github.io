@@ -23,8 +23,8 @@
     :root{
       /* Gentle white / professional theme */
       --bg: #F6F8FB;                 /* soft off-white */
-      --card: #FFFFFF;               /* pure white cards */
-      --text: #0F172A;               /* deep slate */
+      --card: #FFFFFF;               /* clean cards */
+      --text: #0F172A;               /* deep slate text */
       --muted: #475569;              /* muted slate */
       --accent: #2563EB;             /* corporate blue */
       --border: rgba(15,23,42,0.12); /* subtle border */
@@ -39,7 +39,34 @@
       color: var(--text);
     }
 
-    /* Top nav */
+    /* -----------------------------
+       Background Flowchart (Mermaid)
+    ------------------------------ */
+    .bg-flow {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.10;       /* adjust 0.06–0.14 */
+      overflow: hidden;
+    }
+    .bg-flow .mermaid {
+      width: 1350px;
+      max-width: none;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    /* Ensure content is above background */
+    .nav, .hero, section, footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* -----------------------------
+       Top nav
+    ------------------------------ */
     .nav{
       position: fixed;
       top:0; left:0; right:0;
@@ -84,7 +111,9 @@
       background: rgba(37,99,235,0.08);
     }
 
-    /* Hero */
+    /* -----------------------------
+       Hero (with video wallpaper)
+    ------------------------------ */
     .hero{
       min-height: 92vh;
       display:flex;
@@ -93,13 +122,26 @@
       position: relative;
       overflow: hidden;
     }
+
+    /* Video wallpaper (hero only) */
+    .heroVideo{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -3;
+      filter: saturate(1.05) contrast(1.02);
+    }
+
+    /* Light overlay to keep text readable on video */
     .hero::before{
       content:"";
       position:absolute;
       inset:0;
       background:
-        radial-gradient(900px 500px at 20% 35%, rgba(37,99,235,0.12), transparent 60%),
-        linear-gradient(to bottom, #FFFFFF, #F1F5F9);
+        radial-gradient(900px 500px at 20% 35%, rgba(37,99,235,0.14), transparent 60%),
+        linear-gradient(to bottom, rgba(255,255,255,0.86), rgba(241,245,249,0.90));
       z-index: -2;
     }
     .hero::after{
@@ -420,16 +462,50 @@
       .skills{ grid-template-columns: 1fr; }
       .twoCol{ grid-template-columns: 1fr; }
       .openHint{ margin-left: 0; }
+
+      /* reduce chart size on mobile */
+      .bg-flow .mermaid { width: 980px; }
+    }
+
+    /* Accessibility: reduce motion preference */
+    @media (prefers-reduced-motion: reduce){
+      .heroVideo { display: none; }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- Background Flowchart (behind everything) -->
+  <div class="bg-flow" aria-hidden="true">
+    <div class="mermaid">
+      flowchart TD
+        A[Pradeep Kumar Loganathan] --> B[Education]
+        A --> C[Experience]
+        A --> D[Projects]
+        A --> E[Skills]
+
+        B --> B1[MS - ECE (Colorado State University)]
+        B --> B2[BE - EEE (PSG iTech)]
+
+        C --> C1[Graduate Research Assistant - CSU]
+        C --> C2[Senior Testing & Validation - Chara Technologies]
+
+        D --> D1[Automotive VCU (STM32 + CAN)]
+        D --> D2[Flyback DC-DC (800V→12V)]
+        D --> D3[VHF LNA (125–160 MHz)]
+        D --> D4[Transformer Test Jig (LabVIEW + NI-DAQ)]
+
+        E --> E1[MATLAB/Simulink • CAN tools]
+        E --> E2[Power Electronics • Validation]
+        E --> E3[Embedded C / STM32 • Debug]
+    </div>
+  </div>
+
   <!-- NAV -->
   <div class="nav">
     <div class="inner">
-      <a class="brand" href="#home">Pradeep Kumar Loganathan </a>
+      <a class="brand" href="#home">Pradeep Kumar Loganathan</a>
       <div class="links">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
@@ -443,12 +519,19 @@
 
   <!-- HERO -->
   <div id="home" class="hero">
+
+    <!-- HERO VIDEO WALLPAPER (only here) -->
+    <!-- Put your uploaded mp4 at: assets/hero.mp4 -->
+    <video class="heroVideo" autoplay muted loop playsinline preload="metadata">
+      <source src="assets/hero.mp4" type="video/mp4">
+    </video>
+
     <div class="wrap">
       <div>
         <h1 class="headline">Pradeep Kumar Loganathan</h1>
         <p class="tagline">
           System Design & Validation Engineer focused on Power electronics and automotive systems.
-          Experienced in New Product Development,Design, testing , 3D printing
+          Experienced in New Product Development, Design, testing, 3D printing
           and functional safety practices.
         </p>
 
@@ -758,6 +841,24 @@
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Mermaid (background flowchart) -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      securityLevel: "strict",
+      theme: "base",
+      themeVariables: {
+        fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif",
+        primaryColor: "#ffffff",
+        primaryTextColor: "#0F172A",
+        lineColor: "rgba(37,99,235,0.35)",
+        tertiaryColor: "#ffffff"
+      },
+      flowchart: { curve: "basis" }
+    });
   </script>
 
 </body>
