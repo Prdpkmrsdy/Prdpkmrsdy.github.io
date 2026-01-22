@@ -21,12 +21,13 @@
 
   <style>
     :root{
-      --bg: #070A12;
-      --card: rgba(10,14,28,0.7);
-      --text: #EAF0FF;
-      --muted: rgba(234,240,255,0.74);
-      --accent: #4C7DFF;
-      --border: rgba(255,255,255,0.09);
+      /* Gentle white / professional theme */
+      --bg: #F6F8FB;                 /* soft off-white */
+      --card: #FFFFFF;               /* pure white cards */
+      --text: #0F172A;               /* deep slate */
+      --muted: #475569;              /* muted slate */
+      --accent: #2563EB;             /* corporate blue */
+      --border: rgba(15,23,42,0.12); /* subtle border */
     }
 
     * { box-sizing: border-box; }
@@ -44,10 +45,11 @@
       top:0; left:0; right:0;
       display:flex;
       justify-content: center;
-      padding: 18px 16px;
+      padding: 14px 16px;
       z-index: 10;
-      background: linear-gradient(to bottom, rgba(7,10,18,0.82), rgba(7,10,18,0));
-      backdrop-filter: blur(6px);
+      background: rgba(255,255,255,0.85);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
     }
     .nav .inner{
       width: min(1100px, 92vw);
@@ -64,7 +66,7 @@
     }
     .links{
       display:flex;
-      gap: 14px;
+      gap: 10px;
       align-items:center;
       flex-wrap: wrap;
     }
@@ -72,14 +74,14 @@
       color: var(--muted);
       text-decoration:none;
       font-size: 14px;
-      padding: 6px 10px;
+      padding: 8px 10px;
       border-radius: 999px;
       border: 1px solid transparent;
     }
     .links a:hover{
       color: var(--text);
-      border-color: var(--border);
-      background: rgba(255,255,255,0.03);
+      border-color: rgba(37,99,235,0.25);
+      background: rgba(37,99,235,0.08);
     }
 
     /* Hero */
@@ -96,20 +98,15 @@
       position:absolute;
       inset:0;
       background:
-        radial-gradient(1200px 600px at 20% 40%, rgba(76,125,255,0.35), transparent 60%),
-        linear-gradient(to right, rgba(7,10,18,0.93), rgba(7,10,18,0.55)),
-        url("assets/hero-bg.jpg");
-      background-size: cover;
-      background-position: center;
-      filter: saturate(1.05) contrast(1.05);
-      transform: scale(1.02);
+        radial-gradient(900px 500px at 20% 35%, rgba(37,99,235,0.12), transparent 60%),
+        linear-gradient(to bottom, #FFFFFF, #F1F5F9);
       z-index: -2;
     }
     .hero::after{
       content:"";
       position:absolute;
       inset:-40px -60px -40px -60px;
-      background: radial-gradient(700px 700px at 75% 30%, rgba(76,125,255,0.22), transparent 60%);
+      background: radial-gradient(700px 700px at 75% 25%, rgba(37,99,235,0.10), transparent 60%);
       z-index: -1;
     }
 
@@ -150,18 +147,21 @@
       border-radius: 12px;
       text-decoration:none;
       border: 1px solid var(--border);
-      background: rgba(255,255,255,0.05);
+      background: #FFFFFF;
       color: var(--text);
       font-weight: 700;
       font-size: 14px;
+      box-shadow: 0 8px 22px rgba(15,23,42,0.06);
     }
     .btn.primary{
-      background: rgba(76,125,255,0.18);
-      border-color: rgba(76,125,255,0.35);
+      background: var(--accent);
+      color: #FFFFFF;
+      border-color: var(--accent);
     }
     .btn:hover{
       transform: translateY(-1px);
       transition: 0.12s ease;
+      box-shadow: 0 6px 14px rgba(37,99,235,0.18);
     }
 
     .social{
@@ -174,15 +174,16 @@
       height: 38px;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: rgba(255,255,255,0.04);
+      background: #FFFFFF;
       display:flex;
       align-items:center;
       justify-content:center;
       text-decoration:none;
       color: var(--text);
       font-size: 14px;
+      box-shadow: 0 8px 22px rgba(15,23,42,0.06);
     }
-    .icon:hover{ background: rgba(255,255,255,0.07); }
+    .icon:hover{ background: rgba(37,99,235,0.06); }
 
     .profileCard{
       background: var(--card);
@@ -191,6 +192,7 @@
       padding: 18px;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 8px 22px rgba(15,23,42,0.06);
     }
     .profileCard::before{
       content:"";
@@ -198,7 +200,7 @@
       inset:-40px -40px auto auto;
       width: 220px;
       height: 220px;
-      background: radial-gradient(circle, rgba(76,125,255,0.38), transparent 60%);
+      background: radial-gradient(circle, rgba(37,99,235,0.18), transparent 60%);
       filter: blur(2px);
     }
     .avatar{
@@ -207,7 +209,7 @@
       object-fit: cover;
       border-radius: 18px;
       border: 1px solid var(--border);
-      background: rgba(255,255,255,0.03);
+      background: rgba(15,23,42,0.03);
     }
     .mini{
       margin-top: 12px;
@@ -233,9 +235,10 @@
 
     .card{
       border: 1px solid var(--border);
-      background: rgba(255,255,255,0.03);
+      background: var(--card);
       border-radius: 16px;
       padding: 16px;
+      box-shadow: 0 8px 22px rgba(15,23,42,0.06);
     }
     .card p{
       margin: 0;
@@ -244,9 +247,9 @@
       line-height: 1.7;
     }
     .card a{
-      color: var(--text);
+      color: var(--accent);
       text-decoration:none;
-      border-bottom: 1px dashed rgba(255,255,255,0.25);
+      border-bottom: 1px dashed rgba(37,99,235,0.45);
     }
 
     /* Stats */
@@ -257,15 +260,17 @@
       margin-top: 16px;
     }
     .stat-card{
-      background: rgba(255,255,255,0.03);
+      background: var(--card);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 22px;
       text-align:center;
+      box-shadow: 0 8px 22px rgba(15,23,42,0.06);
     }
     .stat-number{
       font-size: 30px;
       font-weight: 900;
+      color: var(--text);
     }
     .stat-label{
       margin-top: 6px;
@@ -282,6 +287,7 @@
     .proj h3{
       margin: 0 0 8px 0;
       font-size: 16px;
+      color: var(--text);
     }
     .proj p{
       margin: 0;
@@ -290,7 +296,7 @@
       line-height: 1.55;
     }
 
-    /* Clickable project cards (NEW) */
+    /* Clickable project cards */
     .projectLink{
       display:block;
       text-decoration:none;
@@ -298,7 +304,7 @@
       border-radius: 16px;
     }
     .projectLink:focus{
-      outline:2px solid rgba(76,125,255,0.6);
+      outline:2px solid rgba(37,99,235,0.45);
       outline-offset:6px;
       border-radius: 18px;
     }
@@ -308,9 +314,9 @@
     }
     .projectLink:hover .card.proj{
       transform: translateY(-4px);
-      box-shadow: 0 18px 55px rgba(0,0,0,0.45);
-      border-color: rgba(76,125,255,0.35);
-      background: rgba(255,255,255,0.045);
+      box-shadow: 0 18px 55px rgba(15,23,42,0.14);
+      border-color: rgba(37,99,235,0.35);
+      background: #FFFFFF;
     }
     .projFooter{
       margin-top: 12px;
@@ -324,13 +330,13 @@
       padding: 6px 10px;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: rgba(255,255,255,0.03);
-      color: rgba(234,240,255,0.78);
+      background: rgba(15,23,42,0.03);
+      color: rgba(15,23,42,0.75);
     }
     .openHint{
       margin-left:auto;
       font-size: 12px;
-      color: rgba(234,240,255,0.6);
+      color: rgba(15,23,42,0.55);
     }
 
     /* Experience blocks */
@@ -342,7 +348,8 @@
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 16px;
-      background: rgba(255,255,255,0.03);
+      background: var(--card);
+      box-shadow: 0 8px 22px rgba(15,23,42,0.06);
     }
     .expTop{
       display:flex;
@@ -351,7 +358,7 @@
       flex-wrap: wrap;
       margin-bottom: 8px;
     }
-    .role{ font-weight: 800; }
+    .role{ font-weight: 800; color: var(--text); }
     .meta{ color: var(--muted); font-size: 13px; }
     .expItem ul{ margin: 10px 0 0 18px; color: var(--muted); }
     .expItem li{ margin: 6px 0; }
@@ -373,13 +380,13 @@
     }
     .bar{
       height: 8px;
-      background: rgba(255,255,255,0.12);
+      background: rgba(15,23,42,0.10);
       border-radius: 999px;
       overflow:hidden;
     }
     .fill{
       height: 100%;
-      background: linear-gradient(90deg, #4C7DFF, #6EA0FF);
+      background: linear-gradient(90deg, #2563EB, #60A5FA);
       border-radius: 999px;
     }
 
@@ -401,6 +408,8 @@
       color: var(--muted);
       text-align:center;
       font-size: 13px;
+      background: #FFFFFF;
+      border-top: 1px solid var(--border);
     }
 
     @media (max-width: 900px){
@@ -506,7 +515,6 @@
 
       <div class="grid">
 
-        <!-- Project 1: change REPO_LINK_1 to your actual repo -->
         <a class="projectLink" href="https://github.com/Prdpkmrsdy/REPO_LINK_1" target="_blank" rel="noopener noreferrer">
           <div class="card proj">
             <h3>Automated Test Jig for Transformer Testing (LabVIEW)</h3>
@@ -523,7 +531,6 @@
           </div>
         </a>
 
-        <!-- Project 2: change REPO_LINK_2 to your actual repo -->
         <a class="projectLink" href="https://github.com/Prdpkmrsdy/REPO_LINK_2" target="_blank" rel="noopener noreferrer">
           <div class="card proj">
             <h3>PLC-Based Elevator System</h3>
@@ -540,7 +547,6 @@
           </div>
         </a>
 
-        <!-- Project 3: change REPO_LINK_3 to your actual repo -->
         <a class="projectLink" href="https://github.com/Prdpkmrsdy/REPO_LINK_3" target="_blank" rel="noopener noreferrer">
           <div class="card proj">
             <h3>72V → 12V DC-DC Converter (2-Wheeler)</h3>
@@ -556,7 +562,6 @@
           </div>
         </a>
 
-        <!-- Project 4 (NEW): replace REPO_LINK_4 with your repo -->
         <a class="projectLink" href="https://github.com/Prdpkmrsdy/REPO_LINK_4" target="_blank" rel="noopener noreferrer">
           <div class="card proj">
             <h3>Flyback DC-DC Converter (Planar Transformer)</h3>
