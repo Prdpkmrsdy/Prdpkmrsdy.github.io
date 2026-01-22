@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chara Technologies | Experience | Pradeep Kumar Loganathan</title>
+
+  <style>
+    :root{
+      --bg:#F6F8FB;
+      --card:#FFFFFF;
+      --text:#0F172A;
+      --muted:#475569;
+      --accent:#2563EB;
+      --border:rgba(15,23,42,.12);
+      --shadow: 0 10px 28px rgba(15,23,42,.08);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+    a{color:var(--accent);text-decoration:none}
+
+    /* Top bar */
+    .nav{
+      position:sticky; top:0; z-index:10;
+      background:rgba(255,255,255,.88);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+    .navInner{
+      width:min(1200px,92vw);
+      margin:0 auto;
+      padding:14px 0;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      font-weight:800;
+    }
+
+    .wrap{
+      width:min(1200px,92vw);
+      margin:0 auto;
+      padding:22px 0 60px;
+    }
+
+    .hero{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    h1{
+      margin:0 0 6px 0;
+      font-size:28px;
+      letter-spacing:-0.3px;
+    }
+    .meta{ color:var(--muted); font-size:14px; line-height:1.7; margin:0; }
+    .impact{
+      margin:10px 0 0 0;
+      font-weight:800;
+      color: rgba(15,23,42,.92);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    .chips{
+      display:flex; gap:8px; flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .chip{
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:12px;
+      background:rgba(15,23,42,.03);
+      color:rgba(15,23,42,.78);
+      font-weight:700;
+    }
+
+    .grid{
+      margin-top:16px;
+      display:grid;
+      gap:14px;
+    }
+
+    .case{
+      display:grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap:14px;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    .media{
+      background:#F1F5F9;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px;
+      min-height: 320px;
+    }
+    .media img{
+      width:100%;
+      height:auto;
+      object-fit:contain;
+      border-radius: 14px;
+      border:1px solid var(--border);
+      background:#fff;
+      box-shadow: 0 6px 18px rgba(15,23,42,0.08);
+      display:block;
+    }
+
+    .content{
+      padding:16px;
+    }
+    h2{
+      margin:0 0 6px 0;
+      font-size:18px;
+      letter-spacing:-0.2px;
+    }
+    .desc{
+      margin:0 0 10px 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.75;
+    }
+
+    .block{
+      border:1px solid var(--border);
+      border-radius: 14px;
+      padding:12px;
+      background: rgba(15,23,42,0.02);
+      margin-top:10px;
+    }
+    .blockTitle{
+      margin:0 0 6px 0;
+      font-weight:900;
+      font-size:13px;
+    }
+    ul{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      line-height:1.85;
+      font-size:13.5px;
+    }
+
+    @media (max-width: 980px){
+      .case{ grid-template-columns: 1fr; }
+      .media{ min-height: 220px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="navInner">
+      <a href="../index.html#experience">← Back</a>
+      <a href="../index.html">Portfolio</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <div class="hero">
+      <h1>Chara Technologies — System Design & Validation Engineer</h1>
+      <p class="meta">Bangalore, India · May 2022 – Present</p>
+      <p class="impact">
+        Worked across <strong>2-wheeler, 3-wheeler, and 4-wheeler</strong> SynRM programs and owned day-to-day
+        <strong>test bay operations</strong> including <strong>4 dyno systems</strong> for characterization and validation.
+      </p>
+
+      <div class="chips">
+        <span class="chip">SynRM (3.7 / 22 / 70 kW)</span>
+        <span class="chip">Dyno Testing</span>
+        <span class="chip">FOC / FW Tuning</span>
+        <span class="chip">CAN Tools</span>
+        <span class="chip">ISO 26262 Exposure</span>
+        <span class="chip">Test Bench 5S / POWRA</span>
+      </div>
+    </div>
+
+    <div class="grid">
+
+      <!-- 1) Two-wheeler program -->
+      <section class="case" id="two-wheeler">
+        <div class="media">
+          <img src="assets/2w.png" alt="2-wheeler EV powertrain development">
+        </div>
+        <div class="content">
+          <h2>2-Wheeler EV Powertrain Development</h2>
+          <p class="desc">
+            System validation and calibration for a 2W SynRM powertrain platform focusing on drivability, safety checks,
+            and repeatable characterization under controlled dyno conditions.
+          </p>
+          <div class="block">
+            <div class="blockTitle">Key Contributions</div>
+            <ul>
+              <li>Speed–torque characterization and efficiency mapping</li>
+              <li>FOC tuning, advance angle / field-weakening optimization</li>
+              <li>Regression tests for firmware changes and feature updates</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2) Three-wheeler program -->
+      <section class="case" id="three-wheeler">
+        <div class="media">
+          <img src="assets/3w.png" alt="3-wheeler EV powertrain development">
+        </div>
+        <div class="content">
+          <h2>3-Wheeler EV Powertrain Development</h2>
+          <p class="desc">
+            Validation and integration activities for a 3W platform including load tests, thermal monitoring,
+            and CAN-based diagnostics readiness.
+          </p>
+          <div class="block">
+            <div class="blockTitle">Key Contributions</div>
+            <ul>
+              <li>Load/thermal tests and performance verification</li>
+              <li>CAN logging and fault reproduction for debugging</li>
+              <li>Harness/interface checks and peripheral feature validation</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3) Four-wheeler program -->
+      <section class="case" id="four-wheeler">
+        <div class="media">
+          <img src="assets/4w.png" alt="4-wheeler EV powertrain development">
+        </div>
+        <div class="content">
+          <h2>4-Wheeler EV Powertrain Development</h2>
+          <p class="desc">
+            Higher-power validation program focusing on repeatability, safety operations, and robust test procedures
+            for powertrain characterization and tuning.
+          </p>
+          <div class="block">
+            <div class="blockTitle">Key Contributions</div>
+            <ul>
+              <li>End-to-end characterization runs and test procedure execution</li>
+              <li>Parameter sweeps for torque response and stability</li>
+              <li>Failure-mode logging and root-cause support</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4) Testing bay management -->
+      <section class="case" id="test-bay">
+        <div class="media">
+          <img src="assets/test-bay.png" alt="Testing bay setup and operations">
+        </div>
+        <div class="content">
+          <h2>Testing Bay Ownership & Operations</h2>
+          <p class="desc">
+            Maintained daily readiness of the test bay: safety checks, instrumentation health, wiring/harness integrity,
+            standardized procedures, and bench organization.
+          </p>
+          <div class="block">
+            <div class="blockTitle">Key Contributions</div>
+            <ul>
+              <li>Bench readiness: sensors, DAQ, power analyzers, scopes, programmable supplies</li>
+              <li>5S + POWRA practices to keep testing safe and efficient</li>
+              <li>Standardized test checklists and repeatable workflow</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5) Dyno fleet -->
+      <section class="case" id="dyno-fleet">
+        <div class="media">
+          <img src="assets/dyno-fleet.png" alt="Dyno fleet and instrumentation">
+        </div>
+        <div class="content">
+          <h2>Dyno Fleet (4 Systems) — Setup, Calibration & Test Execution</h2>
+          <p class="desc">
+            Operated and maintained multiple dynamometer systems (e.g., hysteresis / eddy current / powder / 4Q)
+            to support characterization, durability runs, and validation campaigns.
+          </p>
+          <div class="block">
+            <div class="blockTitle">Key Contributions</div>
+            <ul>
+              <li>Dyno setup, alignment checks, torque/speed sensor verification</li>
+              <li>Repeatable test plans: ramp, steady-state, and load step tests</li>
+              <li>Data quality checks, logging templates, and run-to-run consistency</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</body>
+</html>
