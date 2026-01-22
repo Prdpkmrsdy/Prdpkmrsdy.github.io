@@ -58,51 +58,30 @@
 
     /* Left: image showcase */
     .media{
-  position:relative;
-  display:flex;
-  align-items:center;        /* vertical center */
-  justify-content:center;    /* horizontal center */
-  border-radius: var(--radius);
-  overflow:hidden;
-  box-shadow: var(--shadow);
-  border:1px solid var(--border);
-  background:#F1F5F9;
-  min-height: 520px;
-}
-
-.media img{
-  width:100%;
-  height:auto;
-  max-height:100%;
-  object-fit:contain;        /* IMPORTANT */
-  display:block;
-}
-
-    .media::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.18));
-      pointer-events:none;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      border:1px solid var(--border);
+      background:#F1F5F9;
+      min-height: 520px;
     }
-    .mediaBadge{
-      position:absolute;
-      left:14px;
-      top:14px;
-      background: rgba(255,255,255,0.92);
-      border:1px solid rgba(255,255,255,0.7);
-      padding:8px 10px;
-      border-radius: 999px;
-      font-size:12px;
-      font-weight:800;
-      color: rgba(15,23,42,0.9);
-      backdrop-filter: blur(8px);
+    .media img{
+      width:100%;
+      height:auto;
+      max-height:100%;
+      object-fit:contain;
+      display:block;
+      padding:18px;
     }
 
     /* Right: content panel */
     .panel{
       position:sticky;
-      top:78px; /* sticky below nav */
+      top:78px;
       background:var(--card);
       border:1px solid var(--border);
       border-radius: var(--radius);
@@ -188,7 +167,7 @@
     .smallNote{
       margin-top:10px;
       font-size:12px;
-      color: rgba(71,85,105,0.9);
+      color: rgba(71,85,105,0.92);
     }
 
     /* Responsive */
@@ -213,64 +192,34 @@
 
     <!-- LEFT: Project image -->
     <div class="media">
-      <!-- Change this image path to your actual image -->
-     <img src="vcu.png" alt="VCU project showcase image">
+      <img src="vcu.png" alt="VCU project showcase image">
     </div>
 
     <!-- RIGHT: Content panel -->
     <aside class="panel">
-      <h1>Automotive Vehicle Control Unit (VCU) for SAE Team</h1>
+      <h1>Automotive Vehicle Control Unit (VCU) for SAE Electric Vehicle</h1>
 
       <p class="desc">
-        Designed and developed an automotive VCU based on an STM32L496RET6 microcontroller with CAN, GPS-GSM, IMU,
-        secure authentication IC, ADC/DAC signal conditioning, and opto-isolated digital I/O for vehicle mode control,
-        safety monitoring, and diagnostics.
+        This project involved the end-to-end design of an Automotive Vehicle Control Unit (VCU) intended for an SAE
+        electric vehicle platform. The VCU acts as the central brain of the powertrain and vehicle logic, integrating
+        sensing, communication, power management, safety inputs, and user-mode control into a single embedded system.
+        <br><br>
+        The design emphasizes automotive-grade robustness, power integrity, fault isolation, and diagnostics-ready
+        firmware architecture, making it suitable for real-world EV applications beyond a student prototype.
       </p>
 
       <div class="chips">
-        <span class="chip">STM32L496</span>
+        <span class="chip">STM32L496RE</span>
         <span class="chip">CAN</span>
-        <span class="chip">GPS-GSM</span>
-        <span class="chip">IMU</span>
-        <span class="chip">Opto-isolated I/O</span>
-        <span class="chip">HAL</span>
+        <span class="chip">GPS/GSM</span>
+        <span class="chip">ICM-20600 IMU</span>
+        <span class="chip">Opto-Isolated I/O</span>
+        <span class="chip">Power Sequencing</span>
+        <span class="chip">SD Logging</span>
+        <span class="chip">ATSHA204A</span>
       </div>
 
       <div class="block">
-        <div class="blockTitle">Firmware</div>
+        <div class="blockTitle">System Architecture Summary</div>
         <ul>
-          <li>Interrupt-driven STM32 HAL firmware: CAN, UART, ADC, GPIO, timers</li>
-          <li>Fault handling + diagnostics-ready structure</li>
-          <li>UART logging and bring-up support</li>
-        </ul>
-      </div>
-
-      <div class="block">
-        <div class="blockTitle">Power & Hardware</div>
-        <ul>
-          <li>Buck/LDO regulation and battery charging integration</li>
-          <li>Voltage/current/temperature sensing</li>
-          <li>MCU-controlled power sequencing for robust operation</li>
-        </ul>
-      </div>
-
-      <div class="btnRow">
-        <!-- Replace with your repo link (or remove if confidential) -->
-        <a class="btn primary"
-   href="https://github.com/Prdpkmrsdy/STM32_VCU_study_file"
-   target="_blank"
-   rel="noopener">
-   GitHub / Docs
-</a>
-        <a class="btn" href="../index.html#contact">Contact</a>
-      </div>
-
-      <div class="smallNote">
-        Note- Project files are confidential , related to stake holders.
-      </div>
-    </aside>
-
-  </div>
-
-</body>
-</html>
+          <li>Power Architecture & Power Sequencing</
