@@ -8,11 +8,81 @@
 
   <!-- Use your existing global stylesheet -->
   <link rel="stylesheet" href="../styles.css" />
+
+  <!-- Local styles ONLY for this page to match Chara-like layout -->
+  <style>
+    /* ---- Chara-style rows (image left, content right) ---- */
+    .mediaRow{
+      display: grid;
+      grid-template-columns: minmax(320px, 42%) 1fr;
+      gap: 18px;
+      align-items: stretch;
+      margin: 18px 0;
+    }
+
+    .mediaImg{
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      min-height: 280px;
+    }
+
+    .mediaImg img{
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      object-fit: cover;        /* crops nicely like Chara */
+      object-position: center;
+      display: block;
+    }
+
+    .mediaCard{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      padding: 16px;
+    }
+
+    .mediaTitle{
+      margin: 0 0 10px 0;
+    }
+
+    .mediaCard p{
+      margin: 10px 0;
+    }
+
+    .mediaCard ul{
+      margin: 10px 0 0 18px;
+    }
+
+    .chips{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .chip{
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.03);
+      font-size: 0.95rem;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 860px){
+      .mediaRow{ grid-template-columns: 1fr; }
+      .mediaImg{ min-height: 220px; }
+      .mediaImg img{ min-height: 220px; }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- Simple header (keeps it consistent with your other experience pages) -->
   <header class="topbar">
     <div class="topbarInner">
       <a class="brand" href="../index.html">← Back to Portfolio</a>
@@ -49,54 +119,77 @@
         </ul>
       </div>
 
-      <!-- Images + Explanations (same style as your Chara page cards) -->
+      <!-- ==== Chara-style image + content rows ==== -->
 
-      <!-- 1) Vehicle Prototype -->
-      <div class="card">
-        <img src="kwh_bikes.JPG" alt="kWh Motors L2 electric two-wheeler prototype" loading="lazy" />
-        <h3>Vehicle Prototype &amp; Powertrain Integration</h3>
-        <p>
-          This image shows the L2 electric two-wheeler prototype developed at kWh Motors.
-          I worked as part of the core powertrain and electrification team, supporting electrical
-          system integration during the prototype to pre-production phase.
-        </p>
-        <p>
-          Responsibilities included electrical architecture alignment, subsystem compatibility checks,
-          and integration readiness across motor, controller, battery pack, and vehicle peripherals.
-        </p>
+      <div class="mediaRow">
+        <div class="mediaImg">
+          <img src="kwh_bikes.JPG" alt="kWh Motors L2 electric two-wheeler prototype" loading="lazy" />
+        </div>
+        <div class="mediaCard">
+          <h3 class="mediaTitle">Vehicle Prototype &amp; Powertrain Integration</h3>
+          <p>
+            This image shows the L2 electric two-wheeler prototype developed at kWh Motors. I supported
+            electrical integration during the prototype to pre-production phase.
+          </p>
+          <ul>
+            <li>Electrical architecture alignment across motor, controller, battery, and vehicle peripherals</li>
+            <li>Subsystem compatibility checks and integration readiness reviews</li>
+            <li>Build support and iteration closure for pre-production configurations</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Electrical Integration</span>
+            <span class="chip">EV Powertrain</span>
+            <span class="chip">Prototype → Pre-Prod</span>
+          </div>
+        </div>
       </div>
 
-      <!-- 2) Wiring Harness -->
-      <div class="card">
-        <img src="wiring Harness.JPG" alt="EV wiring harness development and NPD" loading="lazy" />
-        <h3>Wiring Harness Development &amp; Cost Optimization</h3>
-        <p>
-          Shown here is a wiring harness developed as part of the electrical new product development (NPD)
-          for the L2 EV platform. I owned the harness architecture, connector selection, and routing strategy
-          with a focus on manufacturability, reliability, and cost optimization.
-        </p>
-        <p>
-          Through connector rationalization and design simplification, I reduced the overall connector count
-          and achieved a per-vehicle cost saving of approximately USD 27 while meeting functional and safety
-          requirements.
-        </p>
-        <p class="muted">
-          Harness design reviewed under DFMEA (SAE J1739) and aligned with homologation and serviceability considerations.
-        </p>
+      <div class="mediaRow">
+        <div class="mediaImg">
+          <img src="wiring Harness.JPG" alt="EV wiring harness development and NPD" loading="lazy" />
+        </div>
+        <div class="mediaCard">
+          <h3 class="mediaTitle">Wiring Harness Development &amp; Cost Optimization</h3>
+          <p>
+            Wiring harness developed as part of electrical NPD for the L2 EV platform. I owned harness
+            architecture, connector selection, and routing strategy.
+          </p>
+          <ul>
+            <li>Reduced connector count through rationalization and design simplification</li>
+            <li>Improved manufacturability and serviceability while meeting functional requirements</li>
+            <li>Delivered ~USD 27 per-vehicle cost savings</li>
+          </ul>
+          <p class="muted" style="margin-top:10px;">
+            Reviewed under DFMEA (SAE J1739) and aligned with homologation/serviceability considerations.
+          </p>
+          <div class="chips">
+            <span class="chip">Harness NPD</span>
+            <span class="chip">Cost Optimization</span>
+            <span class="chip">DFMEA</span>
+          </div>
+        </div>
       </div>
 
-      <!-- 3) Wheel Dyno -->
-      <div class="card">
-        <img src="2W_wheel_dyno.JPG" alt="2-wheeler wheel dyno validation setup" loading="lazy" />
-        <h3>2-Wheeler Wheel Dyno Testing &amp; Validation</h3>
-        <p>
-          This image captures a 2-wheeler wheel dyno setup used for functional validation and performance
-          evaluation of the electric powertrain.
-        </p>
-        <p>
-          I supported electrical bring-up, instrumentation readiness, and validation activities to verify
-          system behavior prior to vehicle-level testing and homologation workflows.
-        </p>
+      <div class="mediaRow">
+        <div class="mediaImg">
+          <img src="2W_wheel_dyno.JPG" alt="2-wheeler wheel dyno validation setup" loading="lazy" />
+        </div>
+        <div class="mediaCard">
+          <h3 class="mediaTitle">2-Wheeler Wheel Dyno Testing &amp; Validation</h3>
+          <p>
+            Wheel dyno setup used for functional validation and electric powertrain performance evaluation.
+          </p>
+          <ul>
+            <li>Supported electrical bring-up and instrumentation readiness</li>
+            <li>Validated system behavior before full vehicle-level testing</li>
+            <li>Improved first-pass integration quality for homologation workflows</li>
+          </ul>
+          <div class="chips">
+            <span class="chip">Validation</span>
+            <span class="chip">Dyno Testing</span>
+            <span class="chip">Test Readiness</span>
+          </div>
+        </div>
       </div>
 
       <!-- Projects / Highlights -->
@@ -113,7 +206,7 @@
       <!-- Skills -->
       <div class="card">
         <h2>Standards, Tools &amp; Skills</h2>
-        <p class="chips">
+        <div class="chips">
           <span class="chip">SAE J1739 (DFMEA)</span>
           <span class="chip">ARAI / AIS</span>
           <span class="chip">WVTA</span>
@@ -122,7 +215,7 @@
           <span class="chip">Wiring Harness Design</span>
           <span class="chip">Supplier Development</span>
           <span class="chip">OEM Benchmarking</span>
-        </p>
+        </div>
       </div>
 
     </section>
