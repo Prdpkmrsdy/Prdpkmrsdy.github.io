@@ -12,7 +12,7 @@
 
   <!-- Link Preview (upload assets/preview.png to your repo) -->
   <meta property="og:title" content="Pradeep Kumar Loganathan | Portfolio">
-  <meta property="og:description" content="System Design & Validation • Power Electronics Engineer  • Automotive Racing  • Photographer">
+  <meta property="og:description" content="System Design & Validation • Power Electronics Engineer • Automotive Systems">
   <meta property="og:image" content="https://prdkmrsdy.github.io/assets/preview.png">
   <meta property="og:url" content="https://prdkmrsdy.github.io">
   <meta property="og:type" content="website">
@@ -21,13 +21,12 @@
 
   <style>
     :root{
-      /* Gentle white / professional theme */
-      --bg: #F6F8FB;                 /* soft off-white */
-      --card: #FFFFFF;               /* clean cards */
-      --text: #0F172A;               /* deep slate text */
-      --muted: #475569;              /* muted slate */
-      --accent: #2563EB;             /* corporate blue */
-      --border: rgba(15,23,42,0.12); /* subtle border */
+      --bg: #F6F8FB;
+      --card: #FFFFFF;
+      --text: #0F172A;
+      --muted: #475569;
+      --accent: #2563EB;
+      --border: rgba(15,23,42,0.12);
     }
 
     * { box-sizing: border-box; }
@@ -42,27 +41,26 @@
     /* -----------------------------
        Background Flowchart (Mermaid)
     ------------------------------ */
-    .bg-flow {
+    .bg-flow{
       position: fixed;
       inset: 0;
       z-index: 0;
       pointer-events: none;
-      opacity: 0.10;       /* adjust 0.06–0.14 */
+      opacity: 0.14;              /* increased so it’s actually visible */
       overflow: hidden;
     }
-    .bg-flow .mermaid {
-      width: 1350px;
+    .bg-flow .mermaid{
+      width: 1400px;
       max-width: none;
       position: absolute;
       left: 50%;
-      top: 50%;
+      top: 52%;
       transform: translate(-50%, -50%);
+      filter: blur(0.25px);
     }
+
     /* Ensure content is above background */
-    .nav, .hero, section, footer {
-      position: relative;
-      z-index: 1;
-    }
+    .nav, .hero, section, footer { position: relative; z-index: 1; }
 
     /* -----------------------------
        Top nav
@@ -112,7 +110,7 @@
     }
 
     /* -----------------------------
-       Hero (with video wallpaper)
+       Hero
     ------------------------------ */
     .hero{
       min-height: 92vh;
@@ -164,21 +162,24 @@
     .headline{
       font-size: clamp(34px, 4vw, 54px);
       line-height: 1.05;
-      margin: 0 0 12px 0;
+      margin: 0 0 10px 0;
       letter-spacing: -0.6px;
     }
-    .tagline{
-      margin: 0 0 18px 0;
+
+    /* About under name (as you requested) */
+    .aboutUnderName{
+      margin: 0 0 16px 0;
       color: var(--muted);
-      font-size: 16px;
-      max-width: 68ch;
+      font-size: 15.5px;
+      line-height: 1.7;
+      max-width: 72ch;
     }
 
     .cta{
       display:flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-top: 16px;
+      margin-top: 14px;
     }
     .btn{
       display:inline-flex;
@@ -287,37 +288,12 @@
       color: var(--muted);
       font-size: 14px;
       line-height: 1.7;
+      white-space: pre-line;
     }
     .card a{
       color: var(--accent);
       text-decoration:none;
       border-bottom: 1px dashed rgba(37,99,235,0.45);
-    }
-
-    /* Stats */
-    .stats{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 16px;
-    }
-    .stat-card{
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 22px;
-      text-align:center;
-      box-shadow: 0 8px 22px rgba(15,23,42,0.06);
-    }
-    .stat-number{
-      font-size: 30px;
-      font-weight: 900;
-      color: var(--text);
-    }
-    .stat-label{
-      margin-top: 6px;
-      font-size: 13px;
-      color: var(--muted);
     }
 
     /* Projects grid */
@@ -401,6 +377,19 @@
       margin-bottom: 8px;
     }
     .role{ font-weight: 800; color: var(--text); }
+
+    /* clickable experience role */
+    .roleLink{
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(37,99,235,0.35);
+      padding-bottom: 2px;
+    }
+    .roleLink:hover{
+      color: var(--accent);
+      border-bottom-color: rgba(37,99,235,0.7);
+    }
+
     .meta{ color: var(--muted); font-size: 13px; }
     .expItem ul{ margin: 10px 0 0 18px; color: var(--muted); }
     .expItem li{ margin: 6px 0; }
@@ -411,9 +400,7 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
     }
-    .skill{
-      font-size: 13px;
-    }
+    .skill{ font-size: 13px; }
     .skill-header{
       display:flex;
       justify-content: space-between;
@@ -458,47 +445,48 @@
       .wrap{ grid-template-columns: 1fr; }
       .profileCard{ order: -1; }
       .grid{ grid-template-columns: 1fr; }
-      .stats{ grid-template-columns: 1fr 1fr; }
       .skills{ grid-template-columns: 1fr; }
       .twoCol{ grid-template-columns: 1fr; }
       .openHint{ margin-left: 0; }
-
-      /* reduce chart size on mobile */
       .bg-flow .mermaid { width: 980px; }
     }
 
-    /* Accessibility: reduce motion preference */
     @media (prefers-reduced-motion: reduce){
       .heroVideo { display: none; }
+    }
+
+    /* Optional: hide background flowchart on mobile */
+    @media (max-width: 768px){
+      .bg-flow{ display:none; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Background Flowchart (behind everything) -->
+  <!-- Background Flowchart -->
   <div class="bg-flow" aria-hidden="true">
     <div class="mermaid">
-      flowchart TD
-        A[Pradeep Kumar Loganathan] --> B[Education]
-        A --> C[Experience]
-        A --> D[Projects]
-        A --> E[Skills]
+flowchart TD
+  A[Pradeep Kumar Loganathan] --> B[Education]
+  A --> C[Experience]
+  A --> D[Projects]
+  A --> E[Skills]
 
-        B --> B1[MS - ECE (Colorado State University)]
-        B --> B2[BE - EEE (PSG iTech)]
+  B --> B1[MS - ECE (Colorado State University)]
+  B --> B2[BE - EEE (PSG iTech)]
 
-        C --> C1[Graduate Research Assistant - CSU]
-        C --> C2[Senior Testing & Validation - Chara Technologies]
+  C --> C1[Graduate Research Assistant - CSU]
+  C --> C2[Senior Testing & Validation - Chara Technologies]
 
-        D --> D1[Automotive VCU (STM32 + CAN)]
-        D --> D2[Flyback DC-DC (800V→12V)]
-        D --> D3[VHF LNA (125–160 MHz)]
-        D --> D4[Transformer Test Jig (LabVIEW + NI-DAQ)]
+  D --> D1[Automotive VCU (STM32 + CAN)]
+  D --> D2[Flyback DC-DC (800V→12V)]
+  D --> D3[VHF LNA (125–160 MHz)]
+  D --> D4[Transformer Test Jig (LabVIEW + NI-DAQ)]
 
-        E --> E1[MATLAB/Simulink • CAN tools]
-        E --> E2[Power Electronics • Validation]
-        E --> E3[Embedded C / STM32 • Debug]
+  E --> E1[MATLAB/Simulink • CAN tools]
+  E --> E2[Power Electronics • Validation]
+  E --> E3[Embedded C / STM32 • Debug]
     </div>
   </div>
 
@@ -519,9 +507,6 @@
 
   <!-- HERO -->
   <div id="home" class="hero">
-
-    <!-- HERO VIDEO WALLPAPER (only here) -->
-    <!-- Put your uploaded mp4 at: assets/hero.mp4 -->
     <video class="heroVideo" autoplay muted loop playsinline preload="metadata">
       <source src="assets/hero.mp4" type="video/mp4">
     </video>
@@ -529,10 +514,12 @@
     <div class="wrap">
       <div>
         <h1 class="headline">Pradeep Kumar Loganathan</h1>
-        <p class="tagline">
-          System Design & Validation Engineer focused on Power electronics and automotive systems.
-          Experienced in New Product Development, Design, testing, 3D printing
-          and functional safety practices.
+
+        <!-- ABOUT under your name (moved here) -->
+        <p class="aboutUnderName">
+          Graduate Research Engineer (GRE) at the CHILL Radar Facility (Greeley) working on weather radar development,
+          hardware bring-up, system integration, and validation. Previously a System Design & Validation Engineer in EV
+          powertrains (2W/3W/4W), with hands-on dyno testing, CAN diagnostics, calibration (FOC/FW), and test bench ownership.
         </p>
 
         <div class="cta">
@@ -559,41 +546,18 @@
     </div>
   </div>
 
-  <!-- ABOUT -->
+  <!-- ABOUT (keep section, but shorter + clean) -->
   <section id="about">
     <div class="section-inner">
       <h2>About</h2>
       <div class="card">
         <p>
-          I am currently working as a Graduate Research Engineer (GRE) at the CHILL Radar Facility in Greeley, where I support weather radar system development. My work involves hands-on hardware bring-up, system-level integration, instrumentation, testing, and validation of complex electro-mechanical and RF systems—requiring strong discipline in reliability, calibration, fault isolation, and test infrastructure maintenance.
+Currently working as a Graduate Research Engineer (GRE) at the CHILL Radar Facility, supporting weather radar system development.
+My work includes hardware integration, instrumentation, validation, calibration checks, and maintaining reliable test setups.
 
-Prior to this, I worked as a System Design & Validation Engineer in the EV domain, supporting 2-wheeler, 3-wheeler, and 4-wheeler BEV powertrain programs. My responsibilities covered the full development lifecycle, including hardware interface validation, vehicle prototyping support, control system calibration (FOC, field-weakening), and vehicle-level integration.
-
-From a testing and validation perspective, I have extensive hands-on experience with dynamometer-based validation, speed–torque characterization, efficiency mapping, drivability tuning, thermal and load testing, and CAN-based diagnostics. I have routinely worked with power analyzers, oscilloscopes, DAQ systems, programmable supplies, and CAN tools to support data-driven troubleshooting and system verification.
-
-In addition, I have owned test bench and test bay operations, maintaining multiple dynamometer setups (eddy current, hysteresis, powder, and 4Q systems). This included bench readiness, instrumentation health, safety compliance, standardized procedures, and repeatable workflows—directly aligning with validation, homologation readiness, and delivery-focused engineering.
-
-Across both radar and EV programs, my strength lies in hands-on hardware execution, system integration, validation rigor, and maintaining high-uptime test infrastr ucture—skills that translate directly to BEV powertrain and vehicle control system development.
+Previously, I worked in EV powertrain programs (2W/3W/4W) with dyno-based characterization, control calibration (FOC/FW),
+CAN diagnostics, harness/interface validation, and test bay ownership (multiple dyno systems + instrumentation).
         </p>
-      </div>
-
-      <div class="stats">
-        <div class="stat-card">
-          <div class="stat-number">3+</div>
-          <div class="stat-label">Years Electric vehicle Powertrain</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">70 kW</div>
-          <div class="stat-label">SynRM Program Scale</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">270+</div>
-          <div class="stat-label">FMEA Items Authored</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">1M+</div>
-          <div class="stat-label">USD Tooling Savings</div>
-        </div>
       </div>
     </div>
   </section>
@@ -605,7 +569,6 @@ Across both radar and EV programs, my strength lies in hands-on hardware executi
 
       <div class="grid">
 
-        <!-- Project 1 -->
         <a class="projectLink" href="projects/vcu-stm32.html">
           <div class="card proj">
             <h3>Automotive Vehicle Control Unit (VCU) for SAE Team</h3>
@@ -622,12 +585,11 @@ Across both radar and EV programs, my strength lies in hands-on hardware executi
           </div>
         </a>
 
-        <!-- Project 2 -->
         <a class="projectLink" href="projects/flyback-800v-12v.html">
           <div class="card proj">
             <h3>Flyback DC-DC 800V → 12V (72W) with Planar Transformer</h3>
             <p>
-              Automotive-grade isolated flyback using planar magnetics, HV EMI filtering, RCD snubber optimization,
+              Isolated flyback using planar magnetics, HV EMI filtering, RCD snubber optimization,
               and TL431/optocoupler feedback around INN94908C-Q1. IPC-ready documentation.
             </p>
             <div class="projFooter">
@@ -639,13 +601,12 @@ Across both radar and EV programs, my strength lies in hands-on hardware executi
           </div>
         </a>
 
-        <!-- Project 3 -->
         <a class="projectLink" href="projects/vhf-lna.html">
           <div class="card proj">
             <h3>VHF-band Low Noise Amplifier (125–160 MHz)</h3>
             <p>
-              PGA-103+ LNA PCB with ~18 dB gain, ~0.5 dB NF, high linearity (OIP3 up to 35 dBm; extendable),
-              50Ω matching, band-pass filtering, and clean bias network with RF-optimized layout.
+              PGA-103+ LNA PCB with ~18 dB gain, ~0.5 dB NF, 50Ω matching, band-pass filtering,
+              and RF-optimized layout with clean bias network.
             </p>
             <div class="projFooter">
               <span class="badge">RF</span>
@@ -656,12 +617,11 @@ Across both radar and EV programs, my strength lies in hands-on hardware executi
           </div>
         </a>
 
-        <!-- Project 4 -->
         <a class="projectLink" href="projects/transformer-test-jig.html">
           <div class="card proj">
             <h3>Automated Test Jig for Transformer Testing</h3>
             <p>
-              LabVIEW (NI-DAQ 600) automated transformer test setup built at Padmavahini Transformers Pvt Ltd.
+              LabVIEW (NI-DAQ 600) automated transformer test setup.
               Reduced testing time from 34 hours to 19 hours to improve production line efficiency.
             </p>
             <div class="projFooter">
@@ -686,7 +646,6 @@ Across both radar and EV programs, my strength lies in hands-on hardware executi
     </div>
   </section>
 
-
   <!-- EXPERIENCE -->
   <section id="experience">
     <div class="section-inner">
@@ -696,12 +655,9 @@ Across both radar and EV programs, my strength lies in hands-on hardware executi
 
         <div class="expItem">
           <div class="expTop">
-           <div class="role">
-  <a href="experience/chara-technologies.html" class="roleLink">
-    System Design & Validation Engineer
-  </a>
-</div>
-
+            <div class="role">
+              <a href="experience/chara-technologies.html" class="roleLink">System Design & Validation Engineer</a>
+            </div>
             <div class="meta">Chara Technologies · Bangalore, India · May 2022 – Present</div>
           </div>
           <ul>
@@ -731,12 +687,12 @@ Across both radar and EV programs, my strength lies in hands-on hardware executi
         <div class="expItem">
           <div class="expTop">
             <div class="role">Data Analyst – Internship</div>
-            <div class="meta">PV Diagnostics (Fototentia Diagnostics Pvt Ltd) · Indore, India · Dec 2019 – Jan 2020; Apr 2021 – May 2021</div>
+            <div class="meta">PV Diagnostics · Indore, India · Dec 2019 – Jan 2020; Apr 2021 – May 2021</div>
           </div>
           <ul>
             <li>Plant quality analysis using EL imaging and IV-curve analysis; energy yield assessment (P50/P75/P90).</li>
             <li>Loss analysis (DC cable, inverter efficiency, AC/transformer, transmission line, auxiliary) using ETAP.</li>
-            <li>Produced power quality analysis reports (TDH, WMS summary, IV bin degradation) for a 10 MW PV park.</li>
+            <li>Produced power quality analysis reports for a 10 MW PV park.</li>
           </ul>
         </div>
 
@@ -747,7 +703,7 @@ Across both radar and EV programs, my strength lies in hands-on hardware executi
           </div>
           <ul>
             <li>Designed ground support equipment control panels up to 180 kVA; wiring sketches, relay interlocks, routing and compliance.</li>
-            <li>Supported special projects with regulatory awareness (NEC/NFPA); exposure to EMI/EMC testing with CEMILAC via TASL.</li>
+            <li>Regulatory awareness (NEC/NFPA); exposure to EMI/EMC testing via TASL/CEMILAC workflows.</li>
           </ul>
         </div>
 
@@ -867,13 +823,14 @@ Across both radar and EV programs, my strength lies in hands-on hardware executi
   <script>
     mermaid.initialize({
       startOnLoad: true,
-      securityLevel: "strict",
-      theme: "base",
+      securityLevel: "loose",     // avoids strict-mode issues on GitHub Pages
+      theme: "neutral",
       themeVariables: {
         fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif",
         primaryColor: "#ffffff",
         primaryTextColor: "#0F172A",
-        lineColor: "rgba(37,99,235,0.35)",
+        lineColor: "rgba(15,23,42,0.25)",
+        secondaryColor: "#ffffff",
         tertiaryColor: "#ffffff"
       },
       flowchart: { curve: "basis" }
