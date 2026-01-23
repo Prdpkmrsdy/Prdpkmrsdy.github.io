@@ -38,6 +38,9 @@
       color: var(--text);
     }
 
+    /* Make anchor scrolling land below fixed nav */
+    section { scroll-margin-top: 88px; }
+
     /* -----------------------------
        Background Flowchart (Mermaid)
     ------------------------------ */
@@ -46,7 +49,7 @@
       inset: 0;
       z-index: 0;
       pointer-events: none;
-      opacity: 0.14;              /* increased so it’s actually visible */
+      opacity: 0.14;
       overflow: hidden;
     }
     .bg-flow .mermaid{
@@ -288,7 +291,7 @@
       color: var(--muted);
       font-size: 14px;
       line-height: 1.7;
-      white-space: pre-line;
+      white-space: pre-line; /* preserves your line breaks */
     }
     .card a{
       color: var(--accent);
@@ -515,7 +518,6 @@ flowchart TD
       <div>
         <h1 class="headline">Pradeep Kumar Loganathan</h1>
 
-        <!-- ABOUT under your name (moved here) -->
         <p class="aboutUnderName">
           Graduate Research Engineer (GRE) at the CHILL Radar Facility (Greeley) working on weather radar development,
           hardware bring-up, system integration, and validation. Previously a System Design & Validation Engineer in EV
@@ -546,7 +548,7 @@ flowchart TD
     </div>
   </div>
 
-  <!-- ABOUT (keep section, but shorter + clean) -->
+  <!-- ABOUT -->
   <section id="about">
     <div class="section-inner">
       <h2>About</h2>
@@ -818,12 +820,12 @@ CAN diagnostics, harness/interface validation, and test bay ownership (multiple 
     document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 
-  <!-- Mermaid (background flowchart) -->
+  <!-- Mermaid (load ONCE only) -->
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   <script>
     mermaid.initialize({
       startOnLoad: true,
-      securityLevel: "loose",     // avoids strict-mode issues on GitHub Pages
+      securityLevel: "loose",
       theme: "neutral",
       themeVariables: {
         fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif",
