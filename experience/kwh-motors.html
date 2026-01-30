@@ -6,185 +6,176 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>kWh Motors Pvt Ltd | Experience</title>
 
-  <!-- Keep global stylesheet (optional) -->
+  <!-- Keep your global stylesheet -->
   <link rel="stylesheet" href="../styles.css" />
 
+  <!-- Local overrides to match Chara-like WHITE panels -->
   <style>
-    /* =========================
-       1) SAFE BASE (works even if styles.css fails)
-       ========================= */
     :root{
-      --bg:#0b1220;
-      --card:rgba(255,255,255,0.06);
-      --card2:rgba(255,255,255,0.04);
-      --border:rgba(255,255,255,0.10);
-      --text:rgba(255,255,255,0.92);
-      --muted:rgba(255,255,255,0.72);
-      --muted2:rgba(255,255,255,0.62);
-      --accent:#4ea1ff;
-      --shadow: 0 10px 26px rgba(0,0,0,0.28);
+      --pageBg: #F6F8FB;
+      --panel: #FFFFFF;
+      --panel2: #FAFBFD;
+      --text: #0F172A;
+      --muted: #475569;
+      --border: rgba(15,23,42,.12);
+      --shadow: 0 10px 26px rgba(15,23,42,.08);
+      --chipBg: rgba(15,23,42,.04);
+      --chipBorder: rgba(15,23,42,.14);
+      --accent: #2563EB;
     }
 
-    *{ box-sizing:border-box; }
-    body{
-      margin:0;
-      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background: radial-gradient(1200px 600px at 20% -10%, rgba(78,161,255,0.18), transparent 55%),
-                  radial-gradient(900px 500px at 85% 0%, rgba(255,255,255,0.08), transparent 50%),
-                  var(--bg);
-      color: var(--text);
+    /* Force light theme even if global CSS is dark */
+    html, body{
+      background: var(--pageBg) !important;
+      color: var(--text) !important;
     }
 
-    a{ color: var(--accent); text-decoration:none; }
-    a:hover{ text-decoration:underline; }
+    a{ color: var(--accent); text-decoration: none; }
 
-    /* Top bar (VCU-like) */
+    /* Topbar overrides (global might be dark) */
     .topbar{
-      position: sticky;
-      top:0;
-      z-index: 10;
-      background: rgba(11,18,32,0.72);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .topbarInner{
-      width: min(1100px, 92vw);
-      margin: 0 auto;
-      padding: 14px 0;
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      gap: 12px;
+      background: rgba(255,255,255,.85) !important;
+      border-bottom: 1px solid var(--border) !important;
+      backdrop-filter: blur(10px);
     }
     .brand{
-      font-weight: 800;
-      letter-spacing: -0.2px;
-      color: var(--text);
+      color: var(--text) !important;
+      font-weight: 800 !important;
     }
-    .brand:hover{ text-decoration:none; opacity:0.9; }
 
-    /* Layout container */
-    .page{ padding: 0; }
+    /* Page container */
+    .page{ background: transparent !important; }
     .section-inner{
-      width: min(1100px, 92vw);
-      margin: 0 auto;
-      padding: 26px 0 70px;
+      width: min(1100px, 92vw) !important;
+      margin: 0 auto !important;
+      padding: 26px 0 60px !important;
+    }
+
+    /* Headings */
+    h1{
+      margin: 0 0 8px 0;
+      font-size: 34px;
+      letter-spacing: -0.4px;
+      color: var(--text) !important;
+    }
+    h2{
+      margin: 0 0 10px 0;
+      font-size: 18px;
+      letter-spacing: -0.2px;
+      color: var(--text) !important;
+    }
+    h3{
+      margin: 0 0 10px 0;
+      font-size: 16px;
+      letter-spacing: -0.2px;
+      color: var(--text) !important;
+    }
+
+    .muted{
+      color: var(--muted) !important;
+      line-height: 1.75;
     }
 
     /* Cards */
     .card{
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: var(--shadow);
-      margin-top: 16px;
+      background: var(--panel) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: 18px !important;
+      box-shadow: var(--shadow) !important;
+      padding: 18px !important;
     }
 
-    h1{
-      margin: 6px 0 8px;
-      font-size: 34px;
-      letter-spacing: -0.5px;
-    }
-    h2{
-      margin: 0 0 12px;
-      font-size: 18px;
-      letter-spacing: -0.2px;
-    }
-    h3{
-      margin: 0 0 10px;
-      font-size: 17px;
-      letter-spacing: -0.2px;
-    }
-
-    .muted{ color: var(--muted); line-height: 1.8; }
-    .meta{ margin: 0 0 14px; color: var(--muted2); line-height: 1.7; }
-
-    ul{ margin: 10px 0 0 18px; color: var(--muted); line-height: 1.9; }
-    li b{ color: var(--text); }
-
-    /* Callout */
+    /* “Callout” inside card */
     .callout{
       margin-top: 12px;
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: var(--card2);
+      background: var(--panel2);
       border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 14px;
     }
-    .callout b{ color: var(--text); }
-    .callout p{ margin: 8px 0 0; }
+    .calloutTitle{
+      font-weight: 900;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
 
     /* Chips */
     .chips{
-      display:flex;
-      flex-wrap:wrap;
+      display: flex;
+      flex-wrap: wrap;
       gap: 10px;
       margin-top: 12px;
     }
     .chip{
-      padding: 8px 12px;
+      padding: 7px 11px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.04);
-      color: rgba(255,255,255,0.82);
+      border: 1px solid var(--chipBorder);
+      background: var(--chipBg);
       font-size: 13px;
-      font-weight: 650;
+      line-height: 1;
       white-space: nowrap;
+      color: rgba(15,23,42,.88);
+      font-weight: 700;
     }
 
-    /* =========================
-       2) MEDIA ROW FIX (prevents huge/skinny banners)
-       ========================= */
+    /* Media rows (Image left, content right) */
     .mediaRow{
       display: grid;
-      grid-template-columns: minmax(320px, 44%) 1fr;
+      grid-template-columns: minmax(340px, 44%) 1fr;
       gap: 18px;
-      align-items: start; /* important */
+      align-items: start;
       margin: 18px 0;
     }
 
-    /* The image container MUST have a fixed height */
+    /* Fixed-height image panel prevents “exploding” layout */
     .mediaImg{
-      border-radius: 16px;
+      border-radius: 18px;
       border: 1px solid var(--border);
-      background: rgba(255,255,255,0.03);
       overflow: hidden;
-
-      /* hard lock to stop “banner” effect */
-      height: 320px;
+      background: #fff;
+      height: 320px;              /* consistent */
+      box-shadow: var(--shadow);
     }
-
-    /* Override any global img rules */
     .mediaImg img{
-      width: 100% !important;
-      height: 100% !important;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       object-position: center;
       display: block;
     }
 
+    /* Right side content card */
     .mediaCard{
-      border-radius: 16px;
+      background: var(--panel);
       border: 1px solid var(--border);
-      background: rgba(255,255,255,0.05);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
       padding: 16px;
     }
 
-    /* Mobile */
+    .mediaCard p{ margin: 10px 0; }
+    .mediaCard ul{ margin: 10px 0 0 18px; color: var(--muted); line-height: 1.85; }
+    .mediaCard li{ margin: 6px 0; }
+
+    /* Nice bullet emphasis */
+    .mediaCard b{ color: var(--text); }
+
+    /* Spacing */
+    .spacer{ height: 14px; }
+
+    /* Responsive */
     @media (max-width: 900px){
-      h1{ font-size: 28px; }
       .mediaRow{ grid-template-columns: 1fr; }
       .mediaImg{ height: 240px; }
+      h1{ font-size: 28px; }
     }
   </style>
 </head>
 
 <body>
-
   <header class="topbar">
     <div class="topbarInner">
       <a class="brand" href="../index.html">← Back to Portfolio</a>
-      <a class="brand" href="../index.html#experience">Experience</a>
     </div>
   </header>
 
@@ -192,9 +183,11 @@
     <section class="section-inner">
 
       <h1>kWh Motors Pvt Ltd</h1>
-      <p class="meta">
+      <p class="muted">
         Powertrain &amp; Electrification Engineer (Electrical Systems) · Bangalore, India · Sep 2021 – May 2022
       </p>
+
+      <div class="spacer"></div>
 
       <!-- Role Summary -->
       <div class="card">
@@ -207,18 +200,20 @@
         </p>
 
         <div class="callout">
-          <b>Accountability:</b>
-          <p class="muted">
-            Electrical architecture definition • Harness routing &amp; connector strategy • DFMEA (SAE J1739) •
+          <div class="calloutTitle">Accountability</div>
+          <div class="muted">
+            Electrical architecture definition • Harness routing &amp; connector strategy • DFMEA documentation (SAE J1739) •
             Validation support (dyno + vehicle) • ARAI/AIS &amp; WVTA readiness • Supplier development &amp; cost optimization
-          </p>
+          </div>
         </div>
       </div>
+
+      <div class="spacer"></div>
 
       <!-- Key Contributions -->
       <div class="card">
         <h2>Key Contributions (Tasks → Outcomes)</h2>
-        <ul>
+        <ul class="muted" style="margin:10px 0 0 18px; line-height:1.9;">
           <li><b>Electrical integration ownership:</b> aligned motor, controller, battery, wiring, and auxiliaries through iterative prototype builds and issue closures.</li>
           <li><b>Harness NPD + connector reduction:</b> simplified architecture and reduced connector count, achieving ~USD 27 cost savings per vehicle.</li>
           <li><b>Homologation support:</b> supported ARAI/AIS approvals and WVTA readiness; coordinated documentation with iCAT, TÜV SÜD, and GARC.</li>
@@ -235,23 +230,26 @@
         </div>
       </div>
 
-      <!-- Media Row 1 -->
+      <div class="spacer"></div>
+
+      <!-- Row 1 -->
       <div class="mediaRow">
         <div class="mediaImg">
-          <img src="PXL_20220415_062452247.jpg" alt="kWh Motors L2 electric two-wheeler prototype" loading="lazy" />
+          <img src="kwh_bikes.JPG" alt="kWh Motors L2 electric two-wheeler prototype" loading="lazy" />
         </div>
+
         <div class="mediaCard">
           <h3>Prototype Mule → Production-Intent Integration</h3>
           <p class="muted">
             Supported early validation builds and prototype mules used for motor/controller bring-up, battery integration,
-            harness routing, and auxiliary systems. Focused on stabilizing the electrical system for repeatable testing and
-            faster iteration cycles.
+            harness routing, and auxiliary systems. Focused on stabilizing electrical integration for repeatable testing and faster iteration cycles.
           </p>
           <ul>
             <li>Subsystem compatibility checks (motor–controller–battery–vehicle loads)</li>
             <li>Electrical architecture decisions to reduce rework across builds</li>
             <li>Issue tracking + closure support for integration and safety gaps</li>
           </ul>
+
           <div class="chips">
             <span class="chip">Prototype Builds</span>
             <span class="chip">Electrical Architecture</span>
@@ -260,12 +258,13 @@
         </div>
       </div>
 
-      <!-- Media Row 2 -->
+      <!-- Row 2 -->
       <div class="mediaRow">
         <div class="mediaImg">
-          <!-- Space in filename MUST be URL-encoded -->
+          <!-- safer for a filename containing a space -->
           <img src="wiring%20Harness.JPG" alt="EV wiring harness development and NPD" loading="lazy" />
         </div>
+
         <div class="mediaCard">
           <h3>Wiring Harness NPD, Routing &amp; Serviceability</h3>
           <p class="muted">
@@ -277,9 +276,11 @@
             <li>Improved accessibility for assembly and field service operations</li>
             <li>Delivered measurable per-vehicle cost reduction (~USD 27)</li>
           </ul>
+
           <p class="muted" style="margin-top:10px;">
             Harness changes were reviewed under DFMEA and aligned to homologation requirements.
           </p>
+
           <div class="chips">
             <span class="chip">Harness NPD</span>
             <span class="chip">Cost Optimization</span>
@@ -288,11 +289,12 @@
         </div>
       </div>
 
-      <!-- Media Row 3 -->
+      <!-- Row 3 -->
       <div class="mediaRow">
         <div class="mediaImg">
-          <img src="PXL_20210906_110219126.PHOTOSPHERE_Original.JPG" alt="2-wheeler wheel dyno validation setup" loading="lazy" />
+          <img src="2W_wheel_dyno.JPG" alt="2-wheeler wheel dyno validation setup" loading="lazy" />
         </div>
+
         <div class="mediaCard">
           <h3>Validation Support (Wheel Dyno + Test Readiness)</h3>
           <p class="muted">
@@ -304,6 +306,7 @@
             <li>Instrumentation readiness checks and debugging support</li>
             <li>Improved test efficiency for homologation-aligned workflows</li>
           </ul>
+
           <div class="chips">
             <span class="chip">Validation</span>
             <span class="chip">Dyno Testing</span>
@@ -312,14 +315,44 @@
         </div>
       </div>
 
+      <!-- ✅ NEW Row 4 (Road-ready vehicle) -->
+      <div class="mediaRow">
+        <div class="mediaImg">
+          <img src="KWH_bikes_1.png" alt="kWh Bikes road-ready vehicle (production-intent)" loading="lazy" />
+        </div>
+
+        <div class="mediaCard">
+          <h3>Road-Ready Vehicle &amp; Production-Intent Release</h3>
+          <p class="muted">
+            By the end of the program, the vehicle evolved from prototype mules into a road-ready, production-intent configuration.
+            My contributions spanned electrical integration maturity, harness readiness, and compliance-driven documentation support
+            to enable a smoother transition toward homologation and pilot production.
+          </p>
+          <ul>
+            <li>Improved integration robustness through iterative build issue closures</li>
+            <li>Supported release readiness for compliance-aligned documentation and checks</li>
+            <li>Cross-functional coordination to align electrical design with packaging and serviceability</li>
+          </ul>
+
+          <div class="chips">
+            <span class="chip">Production-Intent</span>
+            <span class="chip">Release Readiness</span>
+            <span class="chip">Homologation Support</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="spacer"></div>
+
       <!-- Milestones -->
       <div class="card">
         <h2>Program Milestones &amp; Impact</h2>
-        <ul>
-          <li><b>Prototype-to-Pre-Production:</b> supported integration maturity through issue closure + release readiness.</li>
-          <li><b>Compliance pathway support:</b> aligned design + documentation for ARAI/AIS and WVTA requirements.</li>
-          <li><b>Cost + supplier strategy:</b> contributed to $1M+ tooling savings through benchmarking + vendor evaluation.</li>
+        <ul class="muted" style="margin:10px 0 0 18px; line-height:1.9;">
+          <li><b>Prototype-to-Pre-Production Transition:</b> supported integration maturity through issue closures and release readiness work.</li>
+          <li><b>Compliance pathway support:</b> helped align design + documentation for ARAI/AIS and WVTA requirements.</li>
+          <li><b>Cost + supplier strategy:</b> contributed to $1M+ tooling savings via benchmarking and vendor evaluation.</li>
         </ul>
+
         <div class="chips">
           <span class="chip">ARAI / AIS</span>
           <span class="chip">WVTA</span>
@@ -328,6 +361,8 @@
           <span class="chip">GARC</span>
         </div>
       </div>
+
+      <div class="spacer"></div>
 
       <!-- Skills -->
       <div class="card">
@@ -345,6 +380,5 @@
 
     </section>
   </main>
-
 </body>
 </html>
