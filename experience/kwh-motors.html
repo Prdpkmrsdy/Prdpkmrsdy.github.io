@@ -9,9 +9,8 @@
   <!-- Use your existing global stylesheet -->
   <link rel="stylesheet" href="../styles.css" />
 
-  <!-- Local styles ONLY for this page to match Chara-like layout -->
+  <!-- Local styles ONLY for this page (Chara-like layout) -->
   <style>
-    /* ---- Chara-style rows (image left, content right) ---- */
     .mediaRow{
       display: grid;
       grid-template-columns: minmax(320px, 42%) 1fr;
@@ -32,7 +31,7 @@
       width: 100%;
       height: 100%;
       min-height: 280px;
-      object-fit: cover;        /* crops nicely like Chara */
+      object-fit: cover;
       object-position: center;
       display: block;
     }
@@ -73,6 +72,17 @@
       white-space: nowrap;
     }
 
+    .callout{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+      padding: 14px 16px;
+      margin-top: 12px;
+    }
+
+    .callout b{ color: rgba(255,255,255,0.92); }
+    .callout p{ margin: 8px 0 0 0; }
+
     @media (max-width: 860px){
       .mediaRow{ grid-template-columns: 1fr; }
       .mediaImg{ min-height: 220px; }
@@ -97,92 +107,112 @@
         Powertrain &amp; Electrification Engineer (Electrical Systems) · Bangalore, India · Sep 2021 – May 2022
       </p>
 
-      <!-- Overview -->
+      <!-- Summary / Positioning -->
       <div class="card">
-        <h2>Overview</h2>
+        <h2>Role Summary</h2>
         <p>
-          Worked on an L2 (2-wheeler) EV powertrain skateboard program with responsibility for electrical
-          systems integration, wiring harness development (NPD), homologation readiness, and supplier
-          ecosystem development across the prototype to pre-production phase.
+          Worked in a fast-paced EV startup environment on an L2 (2-wheeler) electric powertrain skateboard program.
+          Owned electrical system integration activities across prototype and pre-production builds, including wiring harness NPD,
+          test readiness, and homologation support. Collaborated closely with industrial design and cross-functional teams to ensure
+          packaging feasibility, serviceability, and electrical compliance for production-intent releases.
         </p>
+
+        <div class="callout">
+          <b>What I was accountable for:</b>
+          <p class="muted">
+            Electrical architecture definition • Harness routing &amp; connector strategy • DFMEA documentation (SAE J1739) •
+            Validation support (dyno + vehicle) • ARAI/AIS &amp; WVTA readiness • Supplier development &amp; cost optimization
+          </p>
+        </div>
       </div>
 
       <!-- Key Contributions -->
       <div class="card">
-        <h2>Key Contributions</h2>
+        <h2>Key Contributions (Tasks → Outcomes)</h2>
         <ul>
-          <li>Led the electrical team for a 3 kW L2 (2-wheeler) powertrain skateboard; supported prototype to pre-production integration.</li>
-          <li>Owned wiring harness NPD and reduced connector count, achieving ~USD 27 cost savings per vehicle.</li>
-          <li>Worked on ARAI/AIS approvals, WVTA, and coordinated with certification bodies including iCAT, TÜV SÜD, and GARC.</li>
-          <li>Authored and managed 270+ DFMEA items (SAE J1739); performed vehicle dynamics calculations and OEM benchmarking.</li>
-          <li>Supplier development with 20+ Tier-1/2 vendors; achieved $1M+ tooling savings through strategic market analysis.</li>
+          <li><b>Electrical integration ownership:</b> aligned motor, controller, battery, wiring, and auxiliaries through iterative prototype builds and issue closures.</li>
+          <li><b>Harness NPD + connector reduction:</b> simplified architecture and reduced connector count, achieving ~USD 27 cost savings per vehicle.</li>
+          <li><b>Homologation support:</b> supported ARAI/AIS approvals and WVTA readiness; coordinated documentation and clarifications with iCAT, TÜV SÜD, and GARC.</li>
+          <li><b>Risk &amp; quality workflows:</b> authored/managed 270+ DFMEA items (SAE J1739) to track failure modes, mitigations, and release readiness.</li>
+          <li><b>Supplier ecosystem:</b> worked with 20+ Tier-1/2 vendors and market benchmarking; contributed to $1M+ tooling savings via sourcing strategy.</li>
         </ul>
+
+        <div class="chips">
+          <span class="chip">Electrical Integration</span>
+          <span class="chip">Harness NPD</span>
+          <span class="chip">Homologation</span>
+          <span class="chip">DFMEA (SAE J1739)</span>
+          <span class="chip">Supplier Development</span>
+        </div>
       </div>
 
-      <!-- ==== Chara-style image + content rows ==== -->
-
+      <!-- Media Row 1 -->
       <div class="mediaRow">
         <div class="mediaImg">
           <img src="kwh_bikes.JPG" alt="kWh Motors L2 electric two-wheeler prototype" loading="lazy" />
         </div>
         <div class="mediaCard">
-          <h3 class="mediaTitle">Vehicle Prototype &amp; Powertrain Integration</h3>
+          <h3 class="mediaTitle">Prototype Mule → Production-Intent Integration</h3>
           <p>
-            This image shows the L2 electric two-wheeler prototype developed at kWh Motors. I supported
-            electrical integration during the prototype to pre-production phase.
+            Supported early validation builds and prototype mules used for motor/controller bring-up, battery integration,
+            harness routing, and auxiliary systems. Focused on stabilizing the electrical system for repeatable testing and
+            faster iteration cycles.
           </p>
           <ul>
-            <li>Electrical architecture alignment across motor, controller, battery, and vehicle peripherals</li>
-            <li>Subsystem compatibility checks and integration readiness reviews</li>
-            <li>Build support and iteration closure for pre-production configurations</li>
+            <li>Subsystem compatibility checks (motor–controller–battery–vehicle loads)</li>
+            <li>Electrical architecture decisions to reduce rework across builds</li>
+            <li>Issue tracking + closure support for integration and safety gaps</li>
           </ul>
           <div class="chips">
-            <span class="chip">Electrical Integration</span>
-            <span class="chip">EV Powertrain</span>
-            <span class="chip">Prototype → Pre-Prod</span>
+            <span class="chip">Prototype Builds</span>
+            <span class="chip">Electrical Architecture</span>
+            <span class="chip">Integration Readiness</span>
           </div>
         </div>
       </div>
 
+      <!-- Media Row 2 -->
       <div class="mediaRow">
         <div class="mediaImg">
           <img src="wiring Harness.JPG" alt="EV wiring harness development and NPD" loading="lazy" />
         </div>
         <div class="mediaCard">
-          <h3 class="mediaTitle">Wiring Harness Development &amp; Cost Optimization</h3>
+          <h3 class="mediaTitle">Wiring Harness NPD, Routing &amp; Serviceability</h3>
           <p>
-            Wiring harness developed as part of electrical NPD for the L2 EV platform. I owned harness
-            architecture, connector selection, and routing strategy.
+            Owned harness development with emphasis on manufacturability, routing constraints, and serviceability.
+            Worked closely with industrial design to ensure electrical pathways matched structural/thermal packaging realities.
           </p>
           <ul>
-            <li>Reduced connector count through rationalization and design simplification</li>
-            <li>Improved manufacturability and serviceability while meeting functional requirements</li>
-            <li>Delivered ~USD 27 per-vehicle cost savings</li>
+            <li>Connector rationalization and architecture simplification</li>
+            <li>Improved accessibility for assembly and field service operations</li>
+            <li>Delivered measurable per-vehicle cost reduction (~USD 27)</li>
           </ul>
           <p class="muted" style="margin-top:10px;">
-            Reviewed under DFMEA (SAE J1739) and aligned with homologation/serviceability considerations.
+            Harness changes were reviewed under DFMEA and aligned to homologation requirements.
           </p>
           <div class="chips">
             <span class="chip">Harness NPD</span>
             <span class="chip">Cost Optimization</span>
-            <span class="chip">DFMEA</span>
+            <span class="chip">Serviceability</span>
           </div>
         </div>
       </div>
 
+      <!-- Media Row 3 -->
       <div class="mediaRow">
         <div class="mediaImg">
           <img src="2W_wheel_dyno.JPG" alt="2-wheeler wheel dyno validation setup" loading="lazy" />
         </div>
         <div class="mediaCard">
-          <h3 class="mediaTitle">2-Wheeler Wheel Dyno Testing &amp; Validation</h3>
+          <h3 class="mediaTitle">Validation Support (Wheel Dyno + Test Readiness)</h3>
           <p>
-            Wheel dyno setup used for functional validation and electric powertrain performance evaluation.
+            Supported validation workflows using wheel dyno setups to confirm functional behavior and powertrain performance.
+            Helped improve first-pass integration by ensuring electrical readiness and instrumentation discipline before vehicle testing.
           </p>
           <ul>
-            <li>Supported electrical bring-up and instrumentation readiness</li>
-            <li>Validated system behavior before full vehicle-level testing</li>
-            <li>Improved first-pass integration quality for homologation workflows</li>
+            <li>Electrical bring-up support and test checklist discipline</li>
+            <li>Instrumentation readiness checks and debugging support</li>
+            <li>Improved test efficiency for homologation-aligned workflows</li>
           </ul>
           <div class="chips">
             <span class="chip">Validation</span>
@@ -192,15 +222,21 @@
         </div>
       </div>
 
-      <!-- Projects / Highlights -->
+      <!-- Milestones / Achievements -->
       <div class="card">
-        <h2>Projects &amp; Highlights</h2>
+        <h2>Program Milestones &amp; Impact</h2>
         <ul>
-          <li><strong>3 kW L2 EV Platform:</strong> Electrical systems ownership from prototype to pre-production integration.</li>
-          <li><strong>Harness NPD:</strong> Connector rationalization and architecture optimization delivering measurable per-vehicle savings.</li>
-          <li><strong>Homologation Support:</strong> Assisted approval pathways (ARAI/AIS, WVTA) and coordination with certification bodies.</li>
-          <li><strong>Supplier Strategy:</strong> Competitive sourcing and market analysis contributing to $1M+ tooling savings.</li>
+          <li><b>Prototype-to-Pre-Production Transition:</b> supported integration maturity through issue closures and release readiness work.</li>
+          <li><b>Compliance Pathway Support:</b> helped align design + documentation for ARAI/AIS and WVTA requirements.</li>
+          <li><b>Cost + Supplier Strategy:</b> supported sourcing decisions and contributed to $1M+ tooling savings via benchmarking and vendor evaluation.</li>
         </ul>
+        <div class="chips">
+          <span class="chip">ARAI / AIS</span>
+          <span class="chip">WVTA</span>
+          <span class="chip">iCAT</span>
+          <span class="chip">TÜV SÜD</span>
+          <span class="chip">GARC</span>
+        </div>
       </div>
 
       <!-- Skills -->
@@ -208,11 +244,10 @@
         <h2>Standards, Tools &amp; Skills</h2>
         <div class="chips">
           <span class="chip">SAE J1739 (DFMEA)</span>
-          <span class="chip">ARAI / AIS</span>
-          <span class="chip">WVTA</span>
-          <span class="chip">EV Powertrain</span>
           <span class="chip">Electrical Architecture</span>
           <span class="chip">Wiring Harness Design</span>
+          <span class="chip">Prototype Integration</span>
+          <span class="chip">Homologation Support</span>
           <span class="chip">Supplier Development</span>
           <span class="chip">OEM Benchmarking</span>
         </div>
