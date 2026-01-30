@@ -119,10 +119,11 @@
       <h1>ESP32 Environmental Sensor PCB</h1>
 
       <div class="muted">
-        Designed a compact ESP32-based environmental sensor PCB, including schematic capture,
-        PCB layout, and 3D mechanical validation in Altium. The project focuses on reliable
-        sensor integration, power conditioning, and manufacturable routing for a practical
-        embedded hardware platform.
+       Designed a custom ESP32-based environmental sensor PCB for multi-parameter ambient and air-quality monitoring, focusing on robust hardware integration, power stability, and development readiness. The board is built around the ESP32-WROOM-32, enabling Wi-Fi and Bluetooth connectivity for wireless data acquisition and IoT applications.
+
+The sensing architecture integrates Bosch BME280 for temperature, humidity, and pressure measurement, MICS-4514 for CO and NO₂ detection, and PAS-CO₂ for carbon dioxide monitoring, providing a comprehensive environmental sensing solution on a single platform. Careful attention was given to sensor interfacing, signal integrity, and layout constraints to ensure reliable measurements.
+
+A dedicated 3.3 V power regulation stage supports stable operation across all subsystems, while USB-to-serial programming support enables streamlined firmware development using ESP-IDF or Arduino IDE workflows. The project includes complete schematic design, PCB layout, and 3D validation in Altium Designer, demonstrating an end-to-end embedded hardware development workflow from concept to manufacturing-ready design.
       </div>
 
       <!-- ACTIONS -->
