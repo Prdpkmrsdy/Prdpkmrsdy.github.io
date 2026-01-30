@@ -9,84 +9,82 @@
   <!-- Use your existing global stylesheet -->
   <link rel="stylesheet" href="../styles.css" />
 
-  <!-- Local styles ONLY for this page (Chara-like layout) -->
+  <!-- Local styles ONLY for this page (clean “VCU-like” layout + fixed media heights) -->
   <style>
+    /* --- Make text feel consistent + readable --- */
+    .muted{ line-height:1.75; }
+
+    /* ---- Two-column rows (image left, content right) ---- */
     .mediaRow{
-      display: grid;
-      grid-template-columns: minmax(320px, 42%) 1fr;
-      gap: 18px;
-      align-items: stretch;
-      margin: 18px 0;
+      display:grid;
+      grid-template-columns: minmax(320px, 44%) 1fr;
+      gap:18px;
+      align-items:start;            /* key: prevents “stretch” weirdness */
+      margin:18px 0;
     }
 
+    /* Key fix: lock image height so it doesn't explode */
     .mediaImg{
-      overflow: hidden;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,0.10);
       background: rgba(255,255,255,0.03);
-      min-height: 280px;
+      overflow:hidden;
+      height: 360px;               /* consistent card height */
     }
 
     .mediaImg img{
-      width: 100%;
-      height: 100%;
-      min-height: 280px;
-      object-fit: cover;
-      object-position: center;
-      display: block;
+      width:100%;
+      height:100%;
+      object-fit:cover;            /* crops nicely */
+      object-position:center;
+      display:block;
     }
 
     .mediaCard{
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,0.10);
       background: rgba(255,255,255,0.04);
-      padding: 16px;
+      padding:16px;
     }
 
-    .mediaTitle{
-      margin: 0 0 10px 0;
-    }
+    .mediaTitle{ margin:0 0 10px 0; }
 
-    .mediaCard p{
-      margin: 10px 0;
-    }
+    .mediaCard p{ margin:10px 0; }
+    .mediaCard ul{ margin:10px 0 0 18px; }
+    .mediaCard li{ line-height:1.8; }
 
-    .mediaCard ul{
-      margin: 10px 0 0 18px;
-    }
-
+    /* Chips */
     .chips{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:12px;
     }
-
     .chip{
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.14);
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.14);
       background: rgba(255,255,255,0.03);
-      font-size: 0.95rem;
-      line-height: 1;
-      white-space: nowrap;
+      font-size:0.95rem;
+      line-height:1;
+      white-space:nowrap;
     }
 
+    /* Callout */
     .callout{
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.10);
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,0.10);
       background: rgba(255,255,255,0.03);
-      padding: 14px 16px;
-      margin-top: 12px;
+      padding:14px 16px;
+      margin-top:12px;
     }
-
     .callout b{ color: rgba(255,255,255,0.92); }
-    .callout p{ margin: 8px 0 0 0; }
+    .callout p{ margin:8px 0 0 0; }
 
+    /* Responsive */
     @media (max-width: 860px){
       .mediaRow{ grid-template-columns: 1fr; }
-      .mediaImg{ min-height: 220px; }
-      .mediaImg img{ min-height: 220px; }
+      .mediaImg{ height: 240px; }  /* prevents huge scroll on mobile */
     }
   </style>
 </head>
@@ -113,7 +111,7 @@
         <p>
           Worked in a fast-paced EV startup environment on an L2 (2-wheeler) electric powertrain skateboard program.
           Owned electrical system integration activities across prototype and pre-production builds, including wiring harness NPD,
-          test readiness, and homologation support. Collaborated closely with industrial design and cross-functional teams to ensure
+          test readiness, and homologation support. Collaborated with industrial design and cross-functional teams to ensure
           packaging feasibility, serviceability, and electrical compliance for production-intent releases.
         </p>
 
@@ -174,6 +172,7 @@
       <!-- Media Row 2 -->
       <div class="mediaRow">
         <div class="mediaImg">
+          <!-- NOTE: filename has a space. Works, but recommended rename to wiring-harness.JPG -->
           <img src="wiring Harness.JPG" alt="EV wiring harness development and NPD" loading="lazy" />
         </div>
         <div class="mediaCard">
@@ -207,7 +206,7 @@
           <h3 class="mediaTitle">Validation Support (Wheel Dyno + Test Readiness)</h3>
           <p>
             Supported validation workflows using wheel dyno setups to confirm functional behavior and powertrain performance.
-            Helped improve first-pass integration by ensuring electrical readiness and instrumentation discipline before vehicle testing.
+            Improved first-pass integration by ensuring electrical readiness and instrumentation discipline before vehicle testing.
           </p>
           <ul>
             <li>Electrical bring-up support and test checklist discipline</li>
