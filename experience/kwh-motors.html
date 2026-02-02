@@ -1,376 +1,311 @@
-<!-- File: experience/kwh-motors.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>kWh Motors Pvt Ltd | Experience</title>
+  <title>kWh Motors Pvt Ltd | Experience | Pradeep Kumar Loganathan</title>
 
-  <!-- Your global stylesheet -->
+  <!-- IMPORTANT:
+       If styles.css is dark / conflicts, keep it,
+       but we override everything below with stronger selectors. -->
   <link rel="stylesheet" href="../styles.css" />
 
-  <!-- Local styles to match Chara (white panel look) -->
   <style>
     :root{
-      /* Light / Chara-like theme */
-      --page-bg:#F6F8FB;
+      --bg:#F6F8FB;
       --card:#FFFFFF;
       --text:#0F172A;
       --muted:#475569;
-
-      --border:rgba(15,23,42,.10);
-      --shadow:0 10px 28px rgba(15,23,42,.08);
-
-      --chip-bg:rgba(15,23,42,.04);
-      --chip-border:rgba(15,23,42,.10);
-
       --accent:#2563EB;
+      --border:rgba(15,23,42,.12);
+      --shadow: 0 10px 28px rgba(15,23,42,.08);
+      --radius: 18px;
     }
+    *{box-sizing:border-box}
 
-    /* Force page to look like Chara */
+    /* HARD OVERRIDES so global styles.css can’t break the look */
     body{
-      background: var(--page-bg) !important;
-      color: var(--text) !important;
+      margin:0 !important;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif !important;
+      background:var(--bg) !important;
+      color:var(--text) !important;
     }
+    a{color:var(--accent) !important; text-decoration:none}
 
-    /* If your global styles.css sets page dark, this neutralizes it */
-    .page{ background: transparent !important; }
-    .section-inner{
-      width: min(1100px, 92vw);
-      margin: 0 auto;
-      padding-bottom: 64px;
-    }
-
-    /* Top header area (simple + light) */
-    .topbar{
-      background: rgba(255,255,255,.85) !important;
+    /* Top bar (same as Chara) */
+    .nav{
+      position:sticky; top:0; z-index:10;
+      background:rgba(255,255,255,.88);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
+      border-bottom:1px solid var(--border);
     }
-    .brand{
-      color: var(--accent) !important;
-      font-weight: 700;
-    }
-
-    /* Headings */
-    h1{
-      color: var(--text);
-      letter-spacing: -0.3px;
-      margin-top: 18px;
-    }
-    h2,h3{
-      color: var(--text);
-      letter-spacing: -0.2px;
-    }
-    .muted{
-      color: var(--muted) !important;
-      line-height: 1.75;
+    .navInner{
+      width:min(1200px,92vw);
+      margin:0 auto;
+      padding:14px 0;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      font-weight:800;
     }
 
-    /* Card = white panel */
-    .card{
-      background: var(--card) !important;
-      border: 1px solid var(--border) !important;
-      border-radius: 16px;
+    .wrap{
+      width:min(1200px,92vw);
+      margin:0 auto;
+      padding:22px 0 60px;
+    }
+
+    /* Hero card (same as Chara) */
+    .hero{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
+      padding:18px;
     }
-
-    /* A slightly “inner” panel used inside cards */
-    .callout{
-      margin-top: 12px;
-      padding: 14px 14px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: #FBFCFE;
+    h1{
+      margin:0 0 6px 0;
+      font-size:28px;
+      letter-spacing:-0.3px;
     }
-    .callout b{
-      color: var(--text);
+    .meta{ color:var(--muted); font-size:14px; line-height:1.7; margin:0; }
+    .impact{
+      margin:10px 0 0 0;
+      font-weight:800;
+      color: rgba(15,23,42,.92);
+      font-size:14px;
+      line-height:1.6;
     }
 
     /* Chips */
-    .chips{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top: 12px;
-    }
+    .chips{ display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
     .chip{
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--chip-border);
-      background: var(--chip-bg);
-      color: rgba(15,23,42,.85);
-      font-size: 12.5px;
-      line-height: 1;
-      white-space: nowrap;
-      font-weight: 600;
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:12px;
+      background:rgba(15,23,42,.03);
+      color:rgba(15,23,42,.78);
+      font-weight:700;
     }
 
-    /* Two-column media rows: image left, content right */
-    .mediaRow{
-      display: grid;
-      grid-template-columns: minmax(320px, 44%) 1fr;
-      gap: 16px;
-      align-items: start;
-      margin: 18px 0;
-    }
+    .grid{ margin-top:16px; display:grid; gap:14px; }
 
-    /* FIX: prevent “giant image / ugly crop” by using a controlled aspect ratio */
-    .mediaImg{
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
+    /* Case cards (same as Chara) */
+    .case{
+      display:grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap:14px;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
-      position: relative;
-
-      /* consistent height like Chara cards */
-      height: 320px;
+      overflow:hidden;
     }
 
-    .mediaImg img{
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;      /* crops nicely */
-      object-position: center;
+    .media{
+      background:#F1F5F9;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px;
+      min-height: 320px;
+    }
+    .media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius: 14px;
+      border:1px solid var(--border);
+      background:#fff;
+      box-shadow: 0 6px 18px rgba(15,23,42,0.08);
+      display:block;
     }
 
-    .mediaCard{
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      padding: 16px;
+    .content{ padding:16px; }
+    h2{ margin:0 0 6px 0; font-size:18px; letter-spacing:-0.2px; }
+    .desc{
+      margin:0 0 10px 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.75;
     }
 
-    .mediaTitle{
-      margin: 0 0 8px 0;
-      font-size: 18px;
+    .block{
+      border:1px solid var(--border);
+      border-radius: 14px;
+      padding:12px;
+      background: rgba(15,23,42,0.02);
+      margin-top:10px;
     }
-
-    .mediaCard p{
-      margin: 10px 0;
-      color: var(--muted);
-      line-height: 1.75;
+    .blockTitle{ margin:0 0 6px 0; font-weight:900; font-size:13px; }
+    ul{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      line-height:1.85;
+      font-size:13.5px;
     }
-    .mediaCard ul{
-      margin: 10px 0 0 18px;
-      color: var(--muted);
-      line-height: 1.8;
-    }
+    .miniChips{ display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
 
-    /* Make the overall spacing feel like Chara */
-    .stack{ margin-top: 16px; }
-
-    /* Responsive */
-    @media (max-width: 900px){
-      .mediaRow{ grid-template-columns: 1fr; }
-      .mediaImg{ height: 240px; }
+    /* Responsive (same idea as Chara) */
+    @media (max-width: 980px){
+      .case{ grid-template-columns: 1fr; }
+      .media{ min-height: 220px; }
+      .media img{ object-fit:cover; }
     }
   </style>
 </head>
 
 <body>
-
-  <header class="topbar">
-    <div class="topbarInner">
-      <a class="brand" href="../index.html">← Back to Portfolio</a>
-      <div class="muted" style="font-weight:600;">Experience</div>
+  <div class="nav">
+    <div class="navInner">
+      <a href="../index.html#experience">← Back</a>
+      <a href="../index.html">Portfolio</a>
     </div>
-  </header>
+  </div>
 
-  <main class="page">
-    <section class="section-inner">
+  <div class="wrap">
 
-      <h1>kWh Motors Pvt Ltd</h1>
-      <p class="muted" style="margin-top:6px;">
-        Powertrain &amp; Electrification Engineer (Electrical Systems) · Bangalore, India · Sep 2021 – May 2022
+    <!-- HERO -->
+    <div class="hero">
+      <h1>kWh Motors Pvt Ltd — Powertrain &amp; Electrification Engineer</h1>
+      <p class="meta">Bangalore, India · Sep 2021 – May 2022</p>
+      <p class="impact">
+        Worked in a fast-paced EV startup on an L2 (2-wheeler) electric powertrain skateboard program, owning electrical
+        integration across prototype &amp; pre-production builds, harness NPD, test readiness, and homologation support.
       </p>
 
-      <!-- Role Summary -->
-      <div class="card stack">
-        <div style="padding:18px;">
-          <h2 style="margin:0 0 10px 0;">Role Summary</h2>
-          <p class="muted" style="margin:0;">
-            Worked in a fast-paced EV startup environment on an L2 (2-wheeler) electric powertrain skateboard program.
-            Owned electrical system integration across prototype and pre-production builds, including wiring harness NPD,
-            test readiness, and homologation support. Collaborated with industrial design and cross-functional teams to ensure
-            packaging feasibility, serviceability, and electrical compliance for production-intent releases.
-          </p>
-
-          <div class="callout">
-            <b>Accountability</b>
-            <p class="muted" style="margin:8px 0 0 0;">
-              Electrical architecture definition • Harness routing &amp; connector strategy • DFMEA documentation (SAE J1739) •
-              Validation support (dyno + vehicle) • ARAI/AIS &amp; WVTA readiness • Supplier development &amp; cost optimization
-            </p>
-          </div>
-        </div>
+      <div class="chips">
+        <span class="chip">Electrical Integration</span>
+        <span class="chip">Harness NPD</span>
+        <span class="chip">Homologation Support</span>
+        <span class="chip">DFMEA (SAE J1739)</span>
+        <span class="chip">Supplier Development</span>
+        <span class="chip">Cost Optimization</span>
       </div>
+    </div>
 
-      <!-- Key Contributions -->
-      <div class="card stack">
-        <div style="padding:18px;">
-          <h2 style="margin:0 0 10px 0;">Key Contributions (Tasks → Outcomes)</h2>
-          <ul style="margin:0 0 0 18px;color:var(--muted);line-height:1.85;">
-            <li><b>Electrical integration ownership:</b> aligned motor, controller, battery, wiring, and auxiliaries through iterative prototype builds and issue closures.</li>
-            <li><b>Harness NPD + connector reduction:</b> simplified architecture and reduced connector count, achieving ~USD 27 cost savings per vehicle.</li>
-            <li><b>Homologation support:</b> supported ARAI/AIS approvals and WVTA readiness; coordinated documentation and clarifications with iCAT, TÜV SÜD, and GARC.</li>
-            <li><b>Risk &amp; quality workflows:</b> authored/managed 270+ DFMEA items (SAE J1739) to track failure modes, mitigations, and release readiness.</li>
-            <li><b>Supplier ecosystem:</b> worked with 20+ Tier-1/2 vendors; contributed to $1M+ tooling savings via benchmarking + sourcing strategy.</li>
-          </ul>
+    <div class="grid">
 
-          <div class="chips">
-            <span class="chip">Electrical Integration</span>
-            <span class="chip">Harness NPD</span>
-            <span class="chip">Homologation</span>
-            <span class="chip">DFMEA (SAE J1739)</span>
-            <span class="chip">Supplier Development</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Media Row 1 -->
-      <div class="mediaRow stack">
-        <div class="mediaImg">
-          <!-- Use the filename that exists in /experience/ -->
+      <!-- 1) Role Summary -->
+      <section class="case" id="role-summary">
+        <div class="media">
           <img src="kwh_workshop.jpg" alt="Prototype workshop / integration area" loading="lazy">
         </div>
-        <div class="mediaCard">
-          <h3 class="mediaTitle">Prototype Mule → Production-Intent Integration</h3>
-          <p>
-            Supported early validation builds and prototype mules used for motor/controller bring-up, battery integration,
-            harness routing, and auxiliary systems. Focused on stabilizing the electrical system for repeatable testing
-            and faster iteration cycles.
+        <div class="content">
+          <h2>Role Summary</h2>
+          <p class="desc">
+            Owned electrical system integration across prototype and pre-production builds, including wiring harness NPD,
+            test readiness, and homologation support. Collaborated with industrial design and cross-functional teams to ensure
+            packaging feasibility, serviceability, and electrical compliance.
           </p>
-          <ul>
-            <li>Subsystem compatibility checks (motor–controller–battery–vehicle loads)</li>
-            <li>Electrical architecture decisions to reduce rework across builds</li>
-            <li>Issue tracking + closure support for integration and safety gaps</li>
-          </ul>
-          <div class="chips">
-            <span class="chip">Prototype Builds</span>
-            <span class="chip">Electrical Architecture</span>
-            <span class="chip">Integration Readiness</span>
+
+          <div class="block">
+            <div class="blockTitle">Accountability</div>
+            <ul>
+              <li>Electrical architecture definition</li>
+              <li>Harness routing &amp; connector strategy</li>
+              <li>DFMEA documentation (SAE J1739)</li>
+              <li>Validation support (dyno + vehicle)</li>
+              <li>ARAI/AIS &amp; WVTA readiness</li>
+              <li>Supplier development &amp; cost optimization</li>
+            </ul>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Media Row 2 -->
-      <div class="mediaRow">
-        <div class="mediaImg">
-          <!-- IMPORTANT: filename has a space in your repo. Keep it exact OR rename file to wiring-harness.JPG -->
-          <img src="wiring Harness.JPG" alt="EV wiring harness development and NPD" loading="lazy">
-        </div>
-        <div class="mediaCard">
-          <h3 class="mediaTitle">Wiring Harness NPD, Routing &amp; Serviceability</h3>
-          <p>
-            Owned harness development with emphasis on manufacturability, routing constraints, and serviceability.
-            Worked closely with industrial design to ensure electrical pathways matched structural/thermal packaging realities.
-          </p>
-          <ul>
-            <li>Connector rationalization and architecture simplification</li>
-            <li>Improved accessibility for assembly and field service operations</li>
-            <li>Delivered measurable per-vehicle cost reduction (~USD 27)</li>
-          </ul>
-          <p class="muted" style="margin-top:10px;">
-            Harness changes were reviewed under DFMEA and aligned to homologation requirements.
-          </p>
-          <div class="chips">
-            <span class="chip">Harness NPD</span>
-            <span class="chip">Cost Optimization</span>
-            <span class="chip">Serviceability</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Media Row 3 -->
-      <div class="mediaRow">
-        <div class="mediaImg">
+      <!-- 2) Key Contributions -->
+      <section class="case" id="key-contributions">
+        <div class="media">
           <img src="2W_wheel_dyno.JPG" alt="2-wheeler wheel dyno validation setup" loading="lazy">
         </div>
-        <div class="mediaCard">
-          <h3 class="mediaTitle">Validation Support (Wheel Dyno + Test Readiness)</h3>
-          <p>
-            Supported validation workflows using wheel dyno setups to confirm functional behavior and powertrain performance.
-            Improved first-pass integration by ensuring electrical readiness and instrumentation discipline before vehicle testing.
-          </p>
-          <ul>
-            <li>Electrical bring-up support and test checklist discipline</li>
-            <li>Instrumentation readiness checks and debugging support</li>
-            <li>Improved test efficiency for homologation-aligned workflows</li>
-          </ul>
-          <div class="chips">
+        <div class="content">
+          <h2>Key Contributions (Tasks → Outcomes)</h2>
+
+          <div class="block" style="margin-top:0;">
+            <div class="blockTitle">Highlights</div>
+            <ul>
+              <li><b>Electrical integration ownership:</b> aligned motor, controller, battery, wiring, and auxiliaries through iterative builds.</li>
+              <li><b>Harness NPD + connector reduction:</b> simplified architecture, saving ~USD 27 per vehicle.</li>
+              <li><b>Homologation support:</b> ARAI/AIS + WVTA readiness; documentation coordination with iCAT, TÜV SÜD, and GARC.</li>
+              <li><b>Risk &amp; quality workflows:</b> managed 270+ DFMEA items (SAE J1739) for mitigations and release readiness.</li>
+              <li><b>Supplier ecosystem:</b> worked with 20+ vendors; contributed to $1M+ tooling savings via sourcing strategy.</li>
+            </ul>
+          </div>
+
+          <div class="miniChips">
+            <span class="chip">Integration</span>
+            <span class="chip">DFMEA</span>
+            <span class="chip">Suppliers</span>
             <span class="chip">Validation</span>
-            <span class="chip">Dyno Testing</span>
-            <span class="chip">Test Readiness</span>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- NEW: Road-ready vehicle block using KWH_bikes_1.png -->
-      <div class="mediaRow">
-        <div class="mediaImg">
+      <!-- 3) Wiring Harness -->
+      <section class="case" id="harness">
+        <div class="media">
+          <!-- IMPORTANT: spaces in filenames are a common GitHub Pages pain.
+               Best: rename file to wiring-harness.jpg and update src. -->
+          <img src="wiring Harness.JPG" alt="EV wiring harness development and NPD" loading="lazy">
+        </div>
+        <div class="content">
+          <h2>Wiring Harness NPD, Routing &amp; Serviceability</h2>
+          <p class="desc">
+            Owned harness development with focus on manufacturability, routing constraints, and serviceability,
+            aligning electrical pathways with structural/thermal packaging realities.
+          </p>
+
+          <div class="block">
+            <div class="blockTitle">What I delivered</div>
+            <ul>
+              <li>Connector rationalization and architecture simplification</li>
+              <li>Improved accessibility for assembly and field service</li>
+              <li>Measured per-vehicle cost reduction (~USD 27)</li>
+              <li>Changes reviewed under DFMEA and aligned to homologation requirements</li>
+            </ul>
+          </div>
+
+          <div class="miniChips">
+            <span class="chip">Harness NPD</span>
+            <span class="chip">Serviceability</span>
+            <span class="chip">Cost</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4) Road-ready vehicle -->
+      <section class="case" id="road-ready">
+        <div class="media">
           <img src="KWH_bikes_1.png" alt="Road-ready kWh Motors vehicle" loading="lazy">
         </div>
-        <div class="mediaCard">
-          <h3 class="mediaTitle">Road-Ready Vehicle &amp; Production-Intent Release</h3>
-          <p>
-            By the end of the program, the platform evolved from prototype mules into a road-ready,
-            production-intent configuration. My work supported electrical integration maturity, harness readiness,
-            and compliance-driven documentation to enable a smoother transition toward homologation and pilot production.
+        <div class="content">
+          <h2>Road-ready Vehicle &amp; Production-intent Release</h2>
+          <p class="desc">
+            The platform evolved from prototype mules into a road-ready, production-intent configuration.
+            I supported electrical integration maturity, harness readiness, and compliance documentation
+            to enable a smoother transition toward homologation and pilot production.
           </p>
-          <ul>
-            <li>Improved integration robustness through iterative build issue closures</li>
-            <li>Supported release readiness for compliance-aligned documentation and checks</li>
-            <li>Cross-functional coordination to align electrical design with packaging + serviceability</li>
-          </ul>
-          <div class="chips">
-            <span class="chip">Production-Intent</span>
+
+          <div class="block">
+            <div class="blockTitle">Key Contributions</div>
+            <ul>
+              <li>Improved integration robustness through iterative build issue closures</li>
+              <li>Supported release readiness with compliance-aligned checks and documentation</li>
+              <li>Aligned electrical design decisions with packaging + serviceability constraints</li>
+            </ul>
+          </div>
+
+          <div class="miniChips">
+            <span class="chip">Production-intent</span>
             <span class="chip">Release Readiness</span>
-            <span class="chip">Homologation Support</span>
+            <span class="chip">Homologation</span>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Program Milestones -->
-      <div class="card stack">
-        <div style="padding:18px;">
-          <h2 style="margin:0 0 10px 0;">Program Milestones &amp; Impact</h2>
-          <ul style="margin:0 0 0 18px;color:var(--muted);line-height:1.85;">
-            <li><b>Prototype-to-Pre-Production Transition:</b> supported integration maturity through issue closures and release readiness work.</li>
-            <li><b>Compliance pathway support:</b> helped align design + documentation for ARAI/AIS and WVTA requirements.</li>
-            <li><b>Cost + supplier strategy:</b> contributed to $1M+ tooling savings via benchmarking and vendor evaluation.</li>
-          </ul>
-          <div class="chips">
-            <span class="chip">ARAI / AIS</span>
-            <span class="chip">WVTA</span>
-            <span class="chip">iCAT</span>
-            <span class="chip">TÜV SÜD</span>
-            <span class="chip">GARC</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Skills -->
-      <div class="card stack">
-        <div style="padding:18px;">
-          <h2 style="margin:0 0 10px 0;">Standards, Tools &amp; Skills</h2>
-          <div class="chips" style="margin-top:0;">
-            <span class="chip">SAE J1739 (DFMEA)</span>
-            <span class="chip">Electrical Architecture</span>
-            <span class="chip">Wiring Harness Design</span>
-            <span class="chip">Prototype Integration</span>
-            <span class="chip">Homologation Support</span>
-            <span class="chip">Supplier Development</span>
-            <span class="chip">OEM Benchmarking</span>
-          </div>
-        </div>
-      </div>
-
-    </section>
-  </main>
-
+    </div>
+  </div>
 </body>
 </html>
