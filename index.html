@@ -20,6 +20,74 @@
   <meta name="twitter:image" content="https://prdkmrsdy.github.io/assets/preview.png">
 
   <style>
+    /* -----------------------------
+   Demo Videos
+------------------------------ */
+.videoGrid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.videoCard{
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(15,23,42,0.06);
+}
+
+.videoThumb{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: rgba(15,23,42,0.03);
+  border-bottom: 1px solid var(--border);
+}
+
+.videoThumb iframe,
+.videoThumb video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+  display:block;
+}
+
+.videoBody{
+  padding: 14px 14px 16px;
+}
+
+.videoTitle{
+  margin: 0 0 6px 0;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.videoDesc{
+  margin: 0;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.videoMeta{
+  margin-top: 10px;
+  display:flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items:center;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .videoGrid{ grid-template-columns: 1fr; }
+}
+
+    
+    
     :root{
       --bg: #F6F8FB;
       --card: #FFFFFF;
@@ -731,6 +799,162 @@ Across these roles, I have led structured validation workflows, supported hardwa
       </div>
     </div>
   </section>
+  <!-- DEMO VIDEOS -->
+<section id="demos">
+  <div class="section-inner">
+    <h2>Demo Videos</h2>
+
+    <div class="videoGrid">
+
+      <!-- 1) VCU Demo (YouTube/Vimeo) -->
+      <div class="videoCard">
+        <div class="videoThumb">
+          <!-- Replace the src with your embed link -->
+          <iframe
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="Automotive VCU Demo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="videoBody">
+          <p class="videoTitle">Automotive VCU (STM32 + CAN)</p>
+          <p class="videoDesc">
+            Demo of CAN messaging, state machine behavior, sensor inputs, and safety/diagnostics workflow.
+          </p>
+          <div class="videoMeta">
+            <span class="badge">STM32</span>
+            <span class="badge">CAN</span>
+            <span class="badge">Diagnostics</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2) Flyback DC-DC Demo (Local MP4 option) -->
+      <div class="videoCard">
+        <div class="videoThumb">
+          <!-- Put your mp4 in /assets/demos/ and update path -->
+          <video controls preload="metadata">
+            <source src="assets/demos/flyback-demo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="videoBody">
+          <p class="videoTitle">Flyback DC-DC (800V → 12V)</p>
+          <p class="videoDesc">
+            Bench bring-up highlights: switching waveforms, regulation response, and protection checks.
+          </p>
+          <div class="videoMeta">
+            <span class="badge">Power</span>
+            <span class="badge">LTspice</span>
+            <span class="badge">Validation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3) RF LNA Demo -->
+      <div class="videoCard">
+        <div class="videoThumb">
+          <!-- Replace with your embed link -->
+          <iframe
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="VHF LNA Demo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="videoBody">
+          <p class="videoTitle">VHF LNA (125–160 MHz)</p>
+          <p class="videoDesc">
+            Gain / noise performance walkthrough with measurement setup and RF layout notes.
+          </p>
+          <div class="videoMeta">
+            <span class="badge">RF</span>
+            <span class="badge">Altium</span>
+            <span class="badge">Test</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4) Transformer Test Jig Demo -->
+      <div class="videoCard">
+        <div class="videoThumb">
+          <!-- Replace with your embed link -->
+          <iframe
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="Transformer Test Jig Demo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="videoBody">
+          <p class="videoTitle">Automated Transformer Test Jig</p>
+          <p class="videoDesc">
+            LabVIEW + NI-DAQ automation demo showing reduced test time and repeatable reporting.
+          </p>
+          <div class="videoMeta">
+            <span class="badge">LabVIEW</span>
+            <span class="badge">NI-DAQ</span>
+            <span class="badge">Automation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5) ESP32 Environmental Sensor Demo -->
+      <div class="videoCard">
+        <div class="videoThumb">
+          <video controls preload="metadata">
+            <source src="assets/demos/esp32-sensor-demo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="videoBody">
+          <p class="videoTitle">ESP32 Environmental Sensor PCB</p>
+          <p class="videoDesc">
+            Hardware overview, bring-up checklist, and sensor streaming / debug workflow.
+          </p>
+          <div class="videoMeta">
+            <span class="badge">ESP32</span>
+            <span class="badge">PCB</span>
+            <span class="badge">Bring-up</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6) Optional: Add one more video card -->
+      <div class="videoCard">
+        <div class="videoThumb">
+          <iframe
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="Project Demo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="videoBody">
+          <p class="videoTitle">Project Demo (Add Title)</p>
+          <p class="videoDesc">
+            Short description of what is shown, test setup, and key results.
+          </p>
+          <div class="videoMeta">
+            <span class="badge">Tag 1</span>
+            <span class="badge">Tag 2</span>
+            <span class="badge">Tag 3</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="height:12px"></div>
+    <div class="card">
+      <p>
+        Tip: Keep demo videos 30–90 seconds. Show the setup, the “happy path”, and one validation check (logging/waveform/CAN trace).
+      </p>
+    </div>
+
+  </div>
+</section>
 
   <!-- SKILLS -->
   <section id="skills">
